@@ -1,0 +1,1 @@
+python generate.py --prompt "create a user registration API endpoint with email and password validation" --ticket ASK-002

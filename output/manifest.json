@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "ExpenseItem.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.009695",
+    "last_modified": "2026-06-19T14:24:53.009712"
+  },
+  {
+    "filename": "ExpenseForm.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.015768",
+    "last_modified": "2026-06-19T14:24:53.015780"
+  },
+  {
+    "filename": "ExpenseList.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.019847",
+    "last_modified": "2026-06-19T14:24:53.019855"
+  },
+  {
+    "filename": "expenseController.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.026272",
+    "last_modified": "2026-06-19T14:24:53.026280"
+  },
+  {
+    "filename": "ExpenseItem.test.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.030641",
+    "last_modified": "2026-06-19T14:24:53.030648"
+  },
+  {
+    "filename": "expenseController.test.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.035378",
+    "last_modified": "2026-06-19T14:24:53.035386"
+  },
+  {
+    "filename": "flowchart_ASK-769.md",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.039903",
+    "last_modified": "2026-06-19T14:24:53.039911"
+  },
+  {
+    "filename": "generated_code.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.106440",
+    "last_modified": "2026-06-19T14:35:28.106450"
+  },
+  {
+    "filename": "generated_code_2.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.111264",
+    "last_modified": "2026-06-19T14:35:28.111272"
+  },
+  {
+    "filename": "generated_code_3.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.115369",
+    "last_modified": "2026-06-19T14:35:28.115377"
+  },
+  {
+    "filename": "generated_code_4.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.119515",
+    "last_modified": "2026-06-19T14:35:28.119524"
+  },
+  {
+    "filename": "generated_code_5.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.125522",
+    "last_modified": "2026-06-19T14:35:28.125532"
+  },
+  {
+    "filename": "generated_code_6.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.129683",
+    "last_modified": "2026-06-19T14:35:28.129690"
+  },
+  {
+    "filename": "body.light",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated LIGHT component or logic file",
+    "created_at": "2026-06-19T14:35:28.133353",
+    "last_modified": "2026-06-19T14:35:28.133360"
+  },
+  {
+    "filename": "generated_code_8.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.138659",
+    "last_modified": "2026-06-19T14:35:28.138668"
+  },
+  {
+    "filename": "flowchart_ASK-770.md",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-19T14:35:28.142565",
+    "last_modified": "2026-06-19T14:35:28.142572"
+  },
+  {
+    "filename": "LoginPage.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "run_dir": "output\\ASK-771",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:37:56.818310",
+    "last_modified": "2026-06-19T14:37:56.818317"
+  },
+  {
+    "filename": "AuthContext.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "run_dir": "output\\ASK-771",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:37:56.821684",
+    "last_modified": "2026-06-19T14:37:56.821689"
+  },
+  {
+    "filename": "authController.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "run_dir": "output\\ASK-771",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:37:56.828749",
+    "last_modified": "2026-06-19T14:37:56.828755"
+  },
+  {
+    "filename": "LoginPage.test.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "run_dir": "output\\ASK-771",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:37:56.833355",
+    "last_modified": "2026-06-19T14:37:56.833361"
+  },
+  {
+    "filename": "flowchart_ASK-771.md",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
+    "run_dir": "output\\ASK-771",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-19T14:37:56.836714",
+    "last_modified": "2026-06-19T14:37:56.836721"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "language": "javascript",
+  "framework": "express",
+  "database": "mongodb",
+  "orm": "mongoose",
+  "auth": null,
+  "other_libraries": [
+    "react",
+    "framer-motion",
+    "prop-types",
+    "supertest",
+    "jest"
+  ],
+  "conventions": [
+    "uses MVC pattern with controllers and models",
+    "React components for UI",
+    "unit tests for components and controllers"
+  ],
+  "file_structure": "controllers/, models/, components/"
+}
