@@ -18,25 +18,31 @@ _CODER_PROVIDER  = os.getenv("PORTKEY_CODER_PROVIDER", "az-openai")
 _TESTER_MODEL    = os.getenv("PORTKEY_TESTER_MODEL", "gpt-4o-mini")
 _TESTER_PROVIDER = os.getenv("PORTKEY_TESTER_PROVIDER", "az-openai")
 
+_REVIEWER_MODEL    = os.getenv("PORTKEY_REVIEWER_MODEL", "gpt-4o-mini")
+_REVIEWER_PROVIDER = os.getenv("PORTKEY_REVIEWER_PROVIDER", "az-openai")
+
 AGENT_MODELS = {
-    "analyst": _ANALYST_MODEL,
-    "coder":   _CODER_MODEL,
-    "tester":  _TESTER_MODEL,
-    "default": _ANALYST_MODEL,
+    "analyst":  _ANALYST_MODEL,
+    "coder":    _CODER_MODEL,
+    "tester":   _TESTER_MODEL,
+    "reviewer": _REVIEWER_MODEL,
+    "default":  _ANALYST_MODEL,
 }
 
 AGENT_PROVIDERS = {
-    "analyst": _ANALYST_PROVIDER,
-    "coder":   _CODER_PROVIDER,
-    "tester":  _TESTER_PROVIDER,
-    "default": _ANALYST_PROVIDER,
+    "analyst":  _ANALYST_PROVIDER,
+    "coder":    _CODER_PROVIDER,
+    "tester":   _TESTER_PROVIDER,
+    "reviewer": _REVIEWER_PROVIDER,
+    "default":  _ANALYST_PROVIDER,
 }
 
 AGENT_TEMPERATURES = {
-    "analyst": 0.3,
-    "coder":   0.2,
-    "tester":  0.1,
-    "default": 0.2,
+    "analyst":  0.3,
+    "coder":    0.2,
+    "tester":   0.1,
+    "reviewer": 0.3,
+    "default":  0.2,
 }
 
 

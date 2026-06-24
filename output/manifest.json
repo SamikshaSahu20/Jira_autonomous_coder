@@ -181,13 +181,13 @@
   },
   {
     "filename": "authController.js",
-    "ticket": "ASK-771",
+    "ticket": "ASK-772",
     "story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
-    "last_story": "Ticket: ASK-771\n\nStory: Create a login page for cropwise-grower metrices website",
-    "run_dir": "output\\ASK-771",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
     "summary": "Generated JS component or logic file",
     "created_at": "2026-06-19T14:37:56.828749",
-    "last_modified": "2026-06-19T14:37:56.828755"
+    "last_modified": "2026-06-23T21:15:51.569165"
   },
   {
     "filename": "LoginPage.test.js",
@@ -208,5 +208,185 @@
     "summary": "System Architecture & Function Map",
     "created_at": "2026-06-19T14:37:56.836714",
     "last_modified": "2026-06-19T14:37:56.836721"
+  },
+  {
+    "filename": "App.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.503141",
+    "last_modified": "2026-06-23T21:15:51.503170"
+  },
+  {
+    "filename": "DashboardPage.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.516493",
+    "last_modified": "2026-06-23T21:15:51.516513"
+  },
+  {
+    "filename": "DashboardChart.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.527017",
+    "last_modified": "2026-06-23T21:15:51.527035"
+  },
+  {
+    "filename": "api.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.538314",
+    "last_modified": "2026-06-24T22:25:50.485484"
+  },
+  {
+    "filename": "analyticsController.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.547664",
+    "last_modified": "2026-06-23T21:15:51.547679"
+  },
+  {
+    "filename": "Analytics.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.558356",
+    "last_modified": "2026-06-23T21:15:51.558372"
+  },
+  {
+    "filename": "analyticsRoutes.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.582429",
+    "last_modified": "2026-06-23T21:15:51.582443"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.591944",
+    "last_modified": "2026-06-24T22:25:50.462333"
+  },
+  {
+    "filename": "DashboardPage.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.597919",
+    "last_modified": "2026-06-23T21:15:51.597930"
+  },
+  {
+    "filename": "DashboardChart.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.607659",
+    "last_modified": "2026-06-23T21:15:51.607672"
+  },
+  {
+    "filename": "analyticsController.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.619001",
+    "last_modified": "2026-06-23T21:15:51.619013"
+  },
+  {
+    "filename": "flowchart_ASK-772.md",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "run_dir": "output\\ASK-772",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-23T21:15:51.629861",
+    "last_modified": "2026-06-23T21:15:51.629875"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-24T22:24:17.623126",
+    "last_modified": "2026-06-24T22:25:50.542160"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated HTML component or logic file",
+    "created_at": "2026-06-24T22:25:50.472546",
+    "last_modified": "2026-06-24T22:25:50.472565"
+  },
+  {
+    "filename": "feedbackController.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.496856",
+    "last_modified": "2026-06-24T22:25:50.496883"
+  },
+  {
+    "filename": "Feedback.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.510054",
+    "last_modified": "2026-06-24T22:25:50.510074"
+  },
+  {
+    "filename": "feedbackController.test.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.522336",
+    "last_modified": "2026-06-24T22:25:50.522348"
+  },
+  {
+    "filename": "flowchart_ASK-781.md",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-24T22:25:50.531384",
+    "last_modified": "2026-06-24T22:25:50.531404"
   }
 ]

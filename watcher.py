@@ -44,7 +44,7 @@ def check_and_trigger():
         stories = get_sprint_stories(sprint_id)
         in_progress = [s for s in stories if s["status"].lower() == "in progress"]
 
-        print(f"[watcher] {datetime.now().strftime('%H:%M:%S')}  '{sprint_name}' — Found {len(in_progress)} tickets 'In Progress'.")
+        print(f"[watcher] {datetime.now().strftime('%H:%M:%S')}  '{sprint_name}' -- Found {len(in_progress)} tickets 'In Progress'.")
 
         # Track processed tickets to avoid re-processing
         state = load_state()
@@ -54,36 +54,55 @@ def check_and_trigger():
         
         if new_tickets:
             print(f"[watcher] Found {len(new_tickets)} NEW ticket(s) to process")
-            run_pipeline(sprint_id, sprint_name)
-            
-            # Update state with newly processed tickets
+            succeeded = run_pipeline(sprint_id, sprint_name) or set()
+
+            # Only mark tickets that actually succeeded
             for ticket in new_tickets:
-                if ticket["ticket"] not in processed:
+                if ticket["ticket"] in succeeded and ticket["ticket"] not in processed:
                     processed.append(ticket["ticket"])
-            
+
             state["processed_tickets"] = processed
             state["last_run"] = datetime.now().isoformat()
             save_state(state)
-            print(f"[watcher] State saved. Processed tickets: {processed}")
+            if succeeded:
+                print(f"[watcher] State saved. Successfully processed: {sorted(succeeded)}")
+            else:
+                print(f"[watcher] No tickets succeeded — state not updated for failed tickets")
         else:
             print(f"[watcher] No new tickets to process (all seen before)")
     
     except json.JSONDecodeError as e:
-        print(f"[watcher] ✗ JSON PARSE ERROR: {e}")
+        print(f"[watcher] X JSON PARSE ERROR: {e}")
         print(f"[watcher] This usually means an API response was empty or malformed")
     except Exception as e:
-        print(f"[watcher] ✗ ERROR: {type(e).__name__}: {e}")
+        print(f"[watcher] X ERROR: {type(e).__name__}: {e}")
         import traceback
         traceback.print_exc()
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--interval", type=float, default=5, help="Poll interval in minutes")
-    parser.add_argument("--once", action="store_true", help="Check once and exit")
+    parser.add_argument("--once",  action="store_true", help="Check once and exit")
+    parser.add_argument("--reset", nargs="*", metavar="TICKET",
+                        help="Clear processed-ticket state. Pass ticket keys to remove specific ones (e.g. --reset ASK-782), or no args to reset ALL.")
     args = parser.parse_args()
 
     if not JIRA_BOARD_ID:
         print("ERROR: Set JIRA_BOARD_ID in .env")
+        return
+
+    # Handle --reset
+    if args.reset is not None:
+        state = load_state()
+        if len(args.reset) == 0:
+            state["processed_tickets"] = []
+            print("[watcher] State cleared -- all tickets will be re-processed on next run.")
+        else:
+            before = set(state.get("processed_tickets", []))
+            state["processed_tickets"] = [t for t in before if t not in args.reset]
+            removed = before - set(state["processed_tickets"])
+            print(f"[watcher] Removed from state: {', '.join(removed) if removed else 'none matched'}")
+        save_state(state)
         return
 
     if args.once:
@@ -91,7 +110,7 @@ def main():
         return
 
     print(f"[watcher] Watching '{AUTO_CODER_SPRINT}' on board {JIRA_BOARD_ID}")
-    print(f"[watcher] Polling every {args.interval} min � Ctrl+C to stop\n")
+    print(f"[watcher] Polling every {args.interval} min -- Ctrl+C to stop\n")
 
     while True:
         try:

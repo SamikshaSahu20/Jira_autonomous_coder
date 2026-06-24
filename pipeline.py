@@ -1,5 +1,5 @@
 """
-pipeline.py — Run the code generator across all stories in a sprint.
+pipeline.py -- Run the code generator across all stories in a sprint.
 
 Usage:
     python pipeline.py --sprint <sprint_id>
@@ -12,6 +12,7 @@ import json
 import os
 import sys
 import re
+import threading
 from pathlib import Path
 from datetime import datetime
 
@@ -22,7 +23,7 @@ from jira_reader import (
 from generate  import generate_code, save_output
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# -- Helpers -------------------------------------------------------------------
 
 HISTORY_FILE = Path("output/pipeline_history.json")
 
@@ -50,32 +51,29 @@ def record_run(sprint_id, sprint_name, story, files_saved):
 
 
 def get_full_explanation(response: str) -> str:
-    """Use AI to generate a dynamic, ticket-specific summary for Jira comments."""
+    """Agent 4 (Reviewer): Analyzes the generated code and posts a structured code review summary to Jira."""
     from portkey_client import call_llm
     system_prompt = (
-        "You are an assistant that writes concise, professional Jira comments summarizing code generation results. "
-        "Keep it to 2-3 bullet points of what was actually changed or generated. "
-        "Do NOT output markdown code blocks. Keep it simple and clear."
+        "You are an expert AI Code Reviewer. Your task is to genuinely analyze the provided code "
+        "and provide an authentic, objective code review summary to be posted in Jira. "
+        "Read the code carefully and provide real feedback based on what you actually see. "
+        "You MUST output exactly and only in this format, replacing the bracketed text with your real analysis, without markdown code block wrappers:\n\n"
+        "💻 *Code Review Summary*\n"
+        "- *Security*: [Write your actual findings regarding security, vulnerabilities, or hardcoded secrets]\n"
+        "- *Complexity*: [Write your actual assessment of the code's complexity, structure, and maintainability]\n"
+        "- *Suggestions*: [Write any real, practical suggestions for improvement or refactoring. If none, say so.]"
     )
     user_prompt = (
-        "Based on the following AI code generation response, write a short summary of the key improvements and files changed.\n\n"
-        f"Response:\n{response[:3000]}\n\n" # Truncate to first 3000 chars to save tokens
-        "Summary format:\n"
-        "✅ **Code Generation Complete**\n\n"
-        "**Key Changes:**\n"
-        "- [bullet 1]\n"
-        "- [bullet 2]\n\n"
-        "**Next Steps:**\n"
-        "1. Review the generated code\n"
-        "2. Run tests locally\n"
-        "3. Raise a Pull Request for validation"
+        "Based on the following AI-generated code response, write the structured code review summary.\n\n"
+        f"Generated Code:\n{response[:4000]}\n" # Truncate to first 4000 chars
     )
     
     try:
-        comment = call_llm(system_prompt=system_prompt, user_prompt=user_prompt, agent="analyst", temperature=0.3)
+        print("  -> Agent 4 (Reviewer) is analyzing the generated code...")
+        comment = call_llm(system_prompt=system_prompt, user_prompt=user_prompt, agent="reviewer", temperature=0.3)
         return comment.strip()
     except Exception as e:
-        print(f"[pipeline] Failed to generate AI comment, falling back to regex: {e}")
+        print(f"[pipeline] Failed to generate AI review comment, falling back to regex: {e}")
         # Fallback logic
         match = re.search(r"## EXPLANATION\s*\n(.*?)(?=##|$)", response, re.DOTALL)
         if match:
@@ -86,7 +84,7 @@ def get_full_explanation(response: str) -> str:
         return "Code generation completed successfully"
 
 
-# ── Core pipeline ─────────────────────────────────────────────────────────────
+# -- Core pipeline -------------------------------------------------------------
 
 def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, model: str = None):
     print(f"\n{'='*60}")
@@ -96,14 +94,16 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
     try:
         stories = get_sprint_stories(sprint_id)
     except Exception as e:
-        print(f"[pipeline] ✗ ERROR fetching stories: {e}")
+        print(f"[pipeline] X ERROR fetching stories: {e}")
         return
 
     if not stories:
         print("[pipeline] No stories found in sprint.")
-        return
+        return set()
 
     print(f"[pipeline] Found {len(stories)} stories\n")
+
+    succeeded = set()
 
     for i, story in enumerate(stories, 1):
         ticket  = story["ticket"]
@@ -112,7 +112,7 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
         print(f"[{i}/{len(stories)}] {ticket} (Status: {status}): {summary}")
 
         if status.lower() != "in progress":
-            print(f"  → Skipping (Ticket is not 'In Progress')\n")
+            print(f"  -> Skipping (Ticket is not 'In Progress')\n")
             continue
 
         if dry_run:
@@ -120,10 +120,10 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
             continue
 
         try:
-            print(f"  → Building prompt...")
+            print(f"  -> Building prompt...")
             prompt   = build_prompt_from_story(story)
             
-            print(f"  → Generating code...")
+            print(f"  -> Generating code...")
             response = generate_code(prompt, ticket=ticket, model=model)
             
             # Validate response
@@ -137,44 +137,66 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
             if "## CODE" not in response and "```" not in response:
                  raise Exception("LLM returned an invalid or completely empty code response")
 
-            print(f"  → Saving output...")
+            print(f"  -> Saving output...")
             run_dir  = save_output(prompt, response, ticket=ticket)
             files    = [f.name for f in run_dir.iterdir() if f.suffix != ".md"]
-            print(f"  ✓ Saved {len(files)} file(s): {', '.join(files)}")
-            
-            # Post Jira Comment & Update Status
-            print(f"  → Extracting summary...")
-            comment_text = get_full_explanation(response)
-            
-            print(f"  → Updating Jira...")
-            add_jira_comment(ticket, comment_text)
-            transition_jira_issue(ticket, "In Review")
-            
+            print(f"  OK Saved {len(files)} file(s): {', '.join(files)}")
+
+            # Agent 4 (Reviewer) -- runs in background thread so pipeline continues immediately
+            def _run_reviewer(response=response, run_dir=run_dir, ticket=ticket):
+                try:
+                    import time
+                    t4 = time.time()
+                    comment_text = get_full_explanation(response)
+                    t5 = time.time()
+                    reviewer_time = t5 - t4
+
+                    review_file = run_dir / "AI_Review.md"
+                    review_file.write_text(comment_text, encoding="utf-8")
+
+                    timings_file = run_dir / "timings.json"
+                    if timings_file.exists():
+                        try:
+                            tdata = json.loads(timings_file.read_text("utf-8"))
+                            tdata["reviewer"] = reviewer_time
+                            timings_file.write_text(json.dumps(tdata, indent=2), "utf-8")
+                        except Exception:
+                            pass
+
+                    add_jira_comment(ticket, comment_text)
+                    transition_jira_issue(ticket, "In Review")
+                    print(f"  OK [Reviewer] {ticket} Jira comment posted ({reviewer_time:.1f}s)")
+                except Exception as e:
+                    print(f"  X [Reviewer] {ticket} failed: {e}")
+
+            threading.Thread(target=_run_reviewer, daemon=True).start()
+            print(f"  -> Reviewer running in background...")
+
             record_run(sprint_id, sprint_name, story, files)
-            print(f"  ✓ {ticket} complete!\n")
-            
+            succeeded.add(ticket)
+            print(f"  OK {ticket} complete!\n")
+
         except json.JSONDecodeError as e:
-            print(f"  ✗ JSON ERROR on {ticket}: {e}")
+            print(f"  X JSON ERROR on {ticket}: {e}")
             print(f"     (API response was empty or malformed)")
-            record_run(sprint_id, sprint_name, story, [f"JSON_ERROR: {e}"])
             continue
         except Exception as e:
-            print(f"  ✗ ERROR on {ticket}: {type(e).__name__}: {e}")
+            print(f"  X ERROR on {ticket}: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
-            record_run(sprint_id, sprint_name, story, [f"ERROR: {e}"])
             continue
 
-    print(f"\n[pipeline] Done.")
+    print(f"\n[pipeline] Done. Succeeded: {succeeded}")
+    return succeeded
 
 
-# ── CLI ───────────────────────────────────────────────────────────────────────
+# -- CLI -----------------------------------------------------------------------
 
 def main():
     parser = argparse.ArgumentParser(description="Run auto-coder pipeline for a Jira sprint")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--sprint", type=int, help="Jira sprint ID")
-    group.add_argument("--board",  type=int, help="Jira board ID — uses active sprint")
+    group.add_argument("--board",  type=int, help="Jira board ID -- uses active sprint")
     parser.add_argument("--model",   default=None, help="Override LLM model")
     parser.add_argument("--dry-run", action="store_true", help="List stories without generating code")
     args = parser.parse_args()

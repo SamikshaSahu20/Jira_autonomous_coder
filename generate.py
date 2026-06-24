@@ -44,21 +44,35 @@ Make sure to format the specification with sections like:
 
 
 def generate_source_code(refined_prompt: str, model: str = None) -> str:
-    system_prompt = """You are an elite Senior Software Engineer.
+    system_prompt = """You are an elite Senior Full-Stack Software Engineer who writes code that RUNS PERFECTLY on first execution.
+
 Based on the provided specification, generate the EXACT source code needed.
 
-CRITICAL Directives:
-1. GENERATE 100% ACCURATE AND BUG-FREE CODE. Do NOT produce code that will throw runtime errors, syntax errors, or warning warnings.
-2. Provide perfectly functional, production-ready code with absolutely no placeholders.
-3. Ensure accessibility labels (like htmlFor/id) are strictly linked.
+== ABSOLUTE RULES -- NEVER VIOLATE ==
+1. ALL files must be placed in a FLAT directory (no subdirectories like ./routes/ or ./controllers/). Use require('./feedbackRoutes') not require('./routes/feedbackRoutes').
+2. If the backend uses a database (MongoDB, PostgreSQL etc.), the Express server MUST start listening IMMEDIATELY regardless of DB connection status. Use this exact pattern:
+   ```
+   app.listen(process.env.PORT || 3000, () => console.log('Server on port ' + (process.env.PORT || 3000)));
+   mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/app')
+     .then(() => console.log('DB connected')).catch(e => console.warn('DB not available:', e.message));
+   ```
+3. NEVER use deprecated Mongoose options (no useNewUrlParser, no useUnifiedTopology).
+4. The Express server MUST serve a complete, self-contained index.html at GET / using express.static or res.sendFile. The index.html must visually demonstrate the full UI with HTML/CSS/vanilla JS -- NO React build step required for preview.
+5. The index.html frontend MUST make API calls to the Express backend routes using fetch().
+6. Use process.env.PORT for the server port, defaulting to 3000.
+7. Generate 100% accurate, bug-free code. No placeholders.
 
-Write every file as a SEPARATE code block. Each block MUST start with a comment on the very first line containing the filename (e.g. `# login.py`).
-Only generate the implementation source code (do NOT write tests yet).
+Write every file as a SEPARATE code block. Each block MUST start with a comment on the very first line containing the exact filename.
 
 ## CODE
-```python
-# filename.py
+```javascript
+// server.js
 <complete code here>
+```
+
+```html
+<!-- index.html -->
+<complete self-contained UI here>
 ```
 """
     return call_llm(
@@ -72,26 +86,26 @@ Only generate the implementation source code (do NOT write tests yet).
 def validate_and_test_code(refined_prompt: str, source_code: str, ticket: str = "custom", model: str = None) -> str:
     system_prompt = f"""You are a Senior QA Engineer and Code Reviewer.
 Your EXACT tasks (in order):
-1. Review the generated source code for 100% accuracy.
-2. Fix any bugs, edge cases, ARIA accessibility issues (like htmlFor/id mismatches), vulnerabilities, or missing logic in the source code.
-3. Write comprehensive test cases designed specifically to **PROVE 100% ACCURACY**. Ensure UI elements are selected robustly (e.g., using `getByLabelText` linking with `htmlFor/id` instead of fragile placeholders).
-4. **MANDATORY - DO NOT SKIP:** Create a detailed interactive Mermaid.js flowchart showing:
-   - Every React component AND EVERY FUNCTION NAME explicitly as their own graph nodes. The text inside the node MUST contain the function name (e.g., `A[functionName (FileName.js)]`)
-   - Data flow and specific function calls between components
-   - CRITICAL: Use Mermaid click syntax for EVERY function/component: `click functionName "FileName.js#L10" "Navigate to function"`
-   Save this as a markdown file named `flowchart_{ticket}.md` inside a markdown code block with HTML comment header.
+1. Review the generated source code for 100% accuracy. FIX all bugs.
 
-Output format MUST be:
+== ABSOLUTE RULES WHEN FIXING CODE -- NEVER VIOLATE ==
+- ALL files MUST be in a FLAT directory. If any require() uses a subdirectory (e.g. './routes/x'), move that file to root and fix the require to './x'.
+- The Express server MUST call app.listen() IMMEDIATELY and unconditionally. DB connection (mongoose/postgres) must be fire-and-forget using .catch(). NEVER gate app.listen inside .then().
+- NEVER use deprecated Mongoose options (useNewUrlParser, useUnifiedTopology).
+- The app MUST include a self-contained index.html served at GET / that visually demonstrates the UI using plain HTML/CSS/vanilla JS + fetch() calls to the backend.
+- Use process.env.PORT with a numeric fallback (e.g. 3000).
+
+2. Fix any bugs, edge cases, ARIA accessibility issues, vulnerabilities, or missing logic.
+3. Write comprehensive test cases to PROVE 100% accuracy.
+4. **MANDATORY:** Create a Mermaid.js flowchart showing every component and function as graph nodes with click links.
+   Save as `flowchart_{ticket}.md` in a markdown code block with an HTML comment header `<!-- flowchart_{ticket}.md -->`.
+
+Output format:
 
 ## CODE
 ```javascript
 // FileName.js
-// complete source code here
-```
-
-```javascript
-// AnotherFile.js
-// more source code
+<complete fixed source code>
 ```
 
 ```markdown
@@ -99,24 +113,19 @@ Output format MUST be:
 # System Architecture & Function Map
 ```mermaid
 graph TD
-    A["App.js<br/>Main Component"]
-    B["ExpenseContext.js<br/>State Management"]
+    A["server.js - Main"]
+    B["route(req,res)"]
     A --> B
-    click A "App.js#L1" "Open App.js"
-    click B "ExpenseContext.js#L1" "Open ExpenseContext.js"
-    
-    C["addExpense(expense)<br/>Adds new expense"]
-    B --> C
-    click C "ExpenseContext.js#L85" "Go to addExpense function"
-    
-    D["deleteExpense(id)<br/>Removes expense"]
-    B --> D
-    click D "ExpenseContext.js#L95" "Go to deleteExpense function"
+    click A "server.js#L1" "Open server.js"
 ```
 ```
 
 ## EXPLANATION
-<2-4 sentences: What was reviewed, what bugs were fixed, and key improvements made to the code.>
+<2-4 sentences: what was reviewed, what bugs were fixed.>
+
+## METRICS
+Bugs Found: <number>
+Bugs Fixed: <number>
 """
     return call_llm(
         system_prompt=system_prompt,
@@ -127,31 +136,39 @@ graph TD
 
 
 def generate_code(prompt: str, ticket: str = "custom", model: str = None, force_refresh: bool = False) -> str:
+    import time
     try:
+        t0 = time.time()
         print(f"[generate] Agent 1 (Analyst) refining requirements from Jira...")
         refined_prompt = refine_requirements(prompt, ticket, model, force_refresh)
+        t1 = time.time()
         
         if not refined_prompt or refined_prompt.strip() == "":
             raise Exception("Analyst agent returned empty response")
-        print(f"[generate] ✓ Analyst complete ({len(refined_prompt)} chars)")
+        print(f"[generate] OK Analyst complete ({len(refined_prompt)} chars) in {t1-t0:.1f}s")
         
         print(f"[generate] Agent 2 (Coder) generating source code...")
         source_code = generate_source_code(refined_prompt, model)
+        t2 = time.time()
         
         if not source_code or source_code.strip() == "":
             raise Exception("Coder agent returned empty response")
-        print(f"[generate] ✓ Coder complete ({len(source_code)} chars)")
+        print(f"[generate] OK Coder complete ({len(source_code)} chars) in {t2-t1:.1f}s")
         
         print(f"[generate] Agent 3 (Tester/Reviewer) validating, fixing, outputting tests and flowcharts...")
         final_output = validate_and_test_code(refined_prompt, source_code, ticket, model)
+        t3 = time.time()
         
         if not final_output or final_output.strip() == "":
             raise Exception("Tester agent returned empty response")
-        print(f"[generate] ✓ Tester complete ({len(final_output)} chars)")
+        print(f"[generate] OK Tester complete ({len(final_output)} chars) in {t3-t2:.1f}s")
         
-        return final_output
+        # Inject timings into final_output so save_output can parse it implicitly
+        timings = f"\n\n```json\n// timings.json\n{{\"analyst\": {t1-t0}, \"coder\": {t2-t1}, \"tester\": {t3-t2}}}\n```\n"
+        
+        return final_output + timings
     except Exception as e:
-        print(f"[generate] ✗ CRITICAL ERROR: {type(e).__name__}: {e}")
+        print(f"[generate] X CRITICAL ERROR: {type(e).__name__}: {e}")
         raise
 
 
@@ -278,15 +295,19 @@ def determine_run_dir(ticket: str, prompt: str, manifest: list) -> Path:
         dir_info_str.append(f"Folder: {rdir}\nContained Tickets: {', '.join(info['tickets'])}\nFiles: {files}\nSummary: {desc}\n")
     
     system_prompt = (
-        "You are an routing assistant. Decide if the new ticket belongs to one of the EXISTING folders, or should be isolated in a NEW folder.\n"
-        "Output ONLY the exact folder path if it's an existing folder, or 'NEW' if it should be isolated."
+        "You are an intelligent routing assistant handling project organization. Your job is to decide whether a new incoming ticket belongs to an EXISTING app folder, or must be isolated in a NEW folder.\n"
+        "RULES:\n"
+        "1. If the new ticket is part of the SAME overall application, project, microservice, or system as an existing folder (e.g., adding a dashboard to an app that already has login), return the EXISTING folder path.\n"
+        "2. ONLY return 'NEW' if the ticket describes a completely different, unrelated application.\n"
+        "3. When in doubt about relation, ALWAYS prefer merging it into the existing folder to keep projects consolidated.\n"
+        "Output ONLY the exact folder path if it's an existing folder, or 'NEW' if it must be completely isolated."
     )
     user_prompt = (
         f"New Ticket: {ticket}\n"
-        f"Ticket Description:\n{prompt[:2000]}\n\n"
+        f"Ticket Description or Data:\n{prompt[:2000]}\n\n"
         "Existing Folders:\n" + "\n".join(dir_info_str) +
-        "\nIs this new ticket a direct continuation/modification of one of the existing folder's applications, or a completely different app/task? "
-        "Return the EXACT EXISTING FOLDER NAME (e.g. 'output/ASK-769') if it matches and belongs to the same app, else return 'NEW'."
+        "\nIs this new ticket part of the same application/project as one of the existing folders, or is it a fully isolated app? "
+        "Return the EXACT EXISTING FOLDER NAME (e.g., 'output/ASK-769') if it should be merged, otherwise return 'NEW'."
     )
     
     try:
@@ -335,7 +356,7 @@ def save_output(prompt: str, response: str, ticket: str = None) -> Path:
                     if entry.get("run_dir") == str(existing_run_dir):
                         entry["run_dir"] = str(new_dir)
                 save_manifest(manifest)
-                print(f"[generate] Renamed application folder: {old_name} → {new_name}")
+                print(f"[generate] Renamed application folder: {old_name} -> {new_name}")
             except Exception as e:
                 print(f"[generate] Error renaming folder: {e}")
                 run_dir = existing_run_dir
@@ -386,7 +407,7 @@ def save_output(prompt: str, response: str, ticket: str = None) -> Path:
             summary=summary,
             ticket=ticket,
         )
-        print(f"[manifest] Recorded '{filename}' → {summary[:60]}...")
+        print(f"[manifest] Recorded '{filename}' -> {summary[:60]}...")
 
     # 3. Extract and save flowchart if present
     flowchart = _extract_flowchart(response)
@@ -398,8 +419,84 @@ def save_output(prompt: str, response: str, ticket: str = None) -> Path:
         saved_files.append(flowchart_filename)
         print(f"[flowchart] Generated: {flowchart_filename}")
 
+    # 4. Extract metrics
+    import json
+    metrics = {"bugs_found": 0, "bugs_fixed": 0}
+    found_match = re.search(r"Bugs Found:\s*(\d+)", response)
+    fixed_match = re.search(r"Bugs Fixed:\s*(\d+)", response)
+    if found_match: metrics["bugs_found"] = int(found_match.group(1))
+    if fixed_match: metrics["bugs_fixed"] = int(fixed_match.group(1))
+    
+    (run_dir / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+
+    # 5. Programmatically generate run scripts and README (fast, no LLM)
+    _generate_run_scripts(run_dir, ticket)
+
     print(f"[done]     {len(saved_files)} file(s) saved: {', '.join(saved_files)}")
     return run_dir
+
+
+def _generate_run_scripts(run_dir: Path, ticket: str = ""):
+    """Generate run.sh, run.bat and README.md without an LLM call."""
+    # Detect entry point
+    entry = "server.js"
+    for candidate in ["server.js", "index.js", "app.js", "main.js"]:
+        if (run_dir / candidate).exists():
+            entry = candidate
+            break
+
+    # Detect language (Python vs Node)
+    py_files = list(run_dir.glob("*.py"))
+    is_python = len(py_files) > 0 and not (run_dir / "package.json").exists()
+
+    if is_python:
+        py_entry = py_files[0].name
+        run_sh  = f"#!/bin/bash\npip install -r requirements.txt 2>/dev/null || true\nPORT=${{PORT:-3000}} python {py_entry}\n"
+        run_bat = f"@echo off\npip install -r requirements.txt\nset PORT=%PORT:-=3000%\npython {py_entry}\n"
+    else:
+        run_sh  = f"#!/bin/bash\nnpm install\nPORT=${{PORT:-3000}} node {entry}\n"
+        run_bat = f"@echo off\nnpm install\nif not defined PORT set PORT=3000\nnode {entry}\n"
+
+    (run_dir / "run.sh").write_text(run_sh, encoding="utf-8")
+    (run_dir / "run.bat").write_text(run_bat, encoding="utf-8")
+
+    # README
+    files_list = "\n".join(f"- `{f.name}`" for f in sorted(run_dir.iterdir()) if f.suffix not in (".json",))
+    readme = f"""# {ticket or run_dir.name}
+
+Auto-generated by the Jira Autonomous Coder pipeline.
+
+## Files
+{files_list}
+
+## Quick Start
+
+**Linux / macOS:**
+```bash
+chmod +x run.sh && ./run.sh
+```
+
+**Windows:**
+```bat
+run.bat
+```
+
+Or manually:
+```bash
+{"pip install -r requirements.txt" if is_python else "npm install"}
+{"python " + (py_files[0].name if py_files else "app.py") if is_python else "node " + entry}
+```
+
+## Environment Variables
+| Variable | Default | Description |
+|----------|---------|-------------|
+| PORT | 3000 | Port the server listens on |
+{"| MONGO_URI | mongodb://localhost:27017/app | MongoDB connection string |" if (run_dir / "server.js").exists() else ""}
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+"""
+    (run_dir / "README.md").write_text(readme, encoding="utf-8")
+    print(f"[generate] OK run.sh / run.bat / README.md generated")
 
 
 def main():
@@ -434,7 +531,7 @@ def main():
         prompt = args.prompt
     else:
         print("=" * 60)
-        print("  Auto Coder — Local Code Generator")
+        print("  Auto Coder -- Local Code Generator")
         print("=" * 60)
         print("Describe what you want to build (press Enter twice when done):\n")
         lines = []

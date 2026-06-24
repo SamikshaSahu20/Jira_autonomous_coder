@@ -38,4 +38,9 @@ export const runTicketApp = async (ticketKey) => {
   return response.data;
 };
 
+export const sendTicketChat = async (ticketKey, message) => {
+  const response = await api.post(`/tickets/${ticketKey}/chat`, { message });
+  return response.data;
+};
+
 export default api;
