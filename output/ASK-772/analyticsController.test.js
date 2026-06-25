@@ -1,23 +1,14 @@
-const request = require('supertest');
-const app = require('../server');
-const Analytics = require('../models/Analytics');
+import request from 'supertest';
+import express from 'express';
+import analyticsController from './analyticsController';
 
-jest.mock('../models/Analytics');
+const app = express();
+app.use('/analytics', analyticsController);
 
-describe('GET /api/analytics', () => {
-    it('returns analytics data', async () => {
-        Analytics.find.mockResolvedValue([{ metricName: 'Test', value: 100, timestamp: new Date() }]);
-
-        const res = await request(app).get('/api/analytics').set('Authorization', 'Bearer validToken');
-        expect(res.statusCode).toBe(200);
-        expect(res.body).toEqual([{ metricName: 'Test', value: 100, timestamp: expect.any(String) }]);
-    });
-
-    it('returns 500 on server error', async () => {
-        Analytics.find.mockRejectedValue(new Error('Database error'));
-
-        const res = await request(app).get('/api/analytics').set('Authorization', 'Bearer validToken');
-        expect(res.statusCode).toBe(500);
-        expect(res.body.error).toBe('Failed to fetch analytics data');
-    });
+test('GET /analytics returns analytics data', async () => {
+  const response = await request(app).get('/analytics');
+  expect(response.status).toBe(200);
+  expect(response.body).toHaveProperty('cropYield');
+  expect(response.body).toHaveProperty('weatherPatterns');
+  expect(response.body).toHaveProperty('financialMetrics');
 });

@@ -2,20 +2,15 @@
 
 ```mermaid
 graph TD
-    A["LoginPage<br/>LoginPage.js"]
-    B["AuthContext<br/>AuthContext.js"]
-    C["login<br/>api.js"]
-    D["login<br/>authController.js"]
-    E["User Model<br/>User.js"]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-
-    click A "client/src/pages/LoginPage.js#L1" "Open LoginPage.js"
-    click B "client/src/context/AuthContext.js#L1" "Open AuthContext.js"
-    click C "client/src/utils/api.js#L1" "Open api.js"
-    click D "controllers/authController.js#L1" "Open authController.js"
-    click E "models/User.js#L1" "Open User.js"
+    A["server.js - Main Server"] --> B["authController.js - Login Endpoint"]
+    A --> C["index.html - Frontend"]
+    C --> D["LoginPage.js - Login Form"]
+    D --> E["AuthContext.js - Authentication Logic"]
+    E --> F["authController.js - Login API"]
+    F --> G["User Model - MongoDB"]
+    click A "server.js#L1" "Open server.js"
+    click B "authController.js#L1" "Open authController.js"
+    click C "index.html#L1" "Open index.html"
+    click D "LoginPage.js#L1" "Open LoginPage.js"
+    click E "AuthContext.js#L1" "Open AuthContext.js"
 ```

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cropwise Grower Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .chart-container {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cropwise Grower Dashboard</h1>
+    <div id="charts"></div>
+  </div>
+  <script>
+    async function fetchAnalyticsData() {
+      try {
+        const response = await fetch('/analytics');
+        if (!response.ok) throw new Error('Failed to fetch analytics data');
+        return await response.json();
+      } catch (error) {
+        console.error(error);
+        document.getElementById('charts').innerHTML = '<p>Error loading data.</p>';
+      }
+    }
+
+    function createChart(container, title, type, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type,
+        data: {
+          labels: data.labels,
+          datasets: data.datasets,
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: title,
+            },
+          },
+        },
+      });
+    }
+
+    async function initDashboard() {
+      const chartsContainer = document.getElementById('charts');
+      const data = await fetchAnalyticsData();
+      if (data) {
+        createChart(chartsContainer, 'Crop Yield Trends', 'line', data.cropYield);
+        createChart(chartsContainer, 'Weather Patterns', 'bar', data.weatherPatterns);
+        createChart(chartsContainer, 'Financial Metrics', 'pie', data.financialMetrics);
+      }
+    }
+
+    initDashboard();
+  </script>
+</body>
+</html>

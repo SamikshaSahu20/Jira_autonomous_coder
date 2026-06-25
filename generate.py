@@ -33,6 +33,7 @@ Make sure to format the specification with sections like:
 ## PLAN (for each file: CREATE or MODIFY, filename, reason)"""
 
     print(f"[generate] Existing files in manifest: {manifest_context.count('**') // 2}")
+    print(f"[generate] Prompt preview: {prompt[:120].strip()!r}")
     
     return call_llm(
         system_prompt=system_prompt,
@@ -97,7 +98,8 @@ Your EXACT tasks (in order):
 
 2. Fix any bugs, edge cases, ARIA accessibility issues, vulnerabilities, or missing logic.
 3. Write comprehensive test cases to PROVE 100% accuracy.
-4. **MANDATORY:** Create a Mermaid.js flowchart showing every component and function as graph nodes with click links.
+4. **MANDATORY - OUTPUT ALL SOURCE FILES:** You MUST re-output EVERY source code file in the ## CODE section, whether modified or not. Do NOT skip any file. If a file has no bugs, output it unchanged. The output folder only contains what you return — if you skip a file, it will be lost.
+5. **MANDATORY:** Create a Mermaid.js flowchart showing every component and function as graph nodes with click links.
    Save as `flowchart_{ticket}.md` in a markdown code block with an HTML comment header `<!-- flowchart_{ticket}.md -->`.
 
 Output format:
@@ -162,6 +164,21 @@ def generate_code(prompt: str, ticket: str = "custom", model: str = None, force_
         if not final_output or final_output.strip() == "":
             raise Exception("Tester agent returned empty response")
         print(f"[generate] OK Tester complete ({len(final_output)} chars) in {t3-t2:.1f}s")
+        
+        # Safety fallback: if Agent 3 returned very little (likely skipped code), merge Agent 2 output in
+        from generate import extract_all_code_blocks as _ecb
+        tester_blocks = _ecb(final_output)
+        coder_blocks = _ecb(source_code)
+        real_tester_code = [b for b in tester_blocks if not b['filename'].endswith('.md') and not b['filename'].endswith('.json')]
+        real_coder_code  = [b for b in coder_blocks  if not b['filename'].endswith('.md') and not b['filename'].endswith('.json')]
+        
+        if len(real_tester_code) < len(real_coder_code):
+            print(f"[generate] WARNING: Agent 3 only returned {len(real_tester_code)} code file(s) vs Agent 2's {len(real_coder_code)}. Injecting missing Agent 2 files into final output.")
+            # Inject Agent 2 code blocks that Agent 3 missed
+            tester_filenames = {b['filename'] for b in tester_blocks}
+            missing_blocks = [b for b in coder_blocks if b['filename'] not in tester_filenames]
+            injection = "\n".join(f"```{b['language']}\n// {b['filename']}\n{b['code']}\n```" for b in missing_blocks)
+            final_output = final_output + "\n" + injection
         
         # Inject timings into final_output so save_output can parse it implicitly
         timings = f"\n\n```json\n// timings.json\n{{\"analyst\": {t1-t0}, \"coder\": {t2-t1}, \"tester\": {t3-t2}}}\n```\n"
@@ -295,19 +312,20 @@ def determine_run_dir(ticket: str, prompt: str, manifest: list) -> Path:
         dir_info_str.append(f"Folder: {rdir}\nContained Tickets: {', '.join(info['tickets'])}\nFiles: {files}\nSummary: {desc}\n")
     
     system_prompt = (
-        "You are an intelligent routing assistant handling project organization. Your job is to decide whether a new incoming ticket belongs to an EXISTING app folder, or must be isolated in a NEW folder.\n"
-        "RULES:\n"
-        "1. If the new ticket is part of the SAME overall application, project, microservice, or system as an existing folder (e.g., adding a dashboard to an app that already has login), return the EXISTING folder path.\n"
-        "2. ONLY return 'NEW' if the ticket describes a completely different, unrelated application.\n"
-        "3. When in doubt about relation, ALWAYS prefer merging it into the existing folder to keep projects consolidated.\n"
-        "Output ONLY the exact folder path if it's an existing folder, or 'NEW' if it must be completely isolated."
+        "You are a strict project routing assistant. Your only job is deciding whether a new Jira ticket modifies an EXISTING application or is a BRAND NEW unrelated app.\n"
+        "RULES (follow strictly):\n"
+        "1. Return an existing folder path ONLY if the ticket is CLEARLY an enhancement, bugfix, or follow-up to the SAME specific application (same app name, same domain, same codebase).\n"
+        "2. Sharing a generic word (like 'dashboard', 'login', 'form', 'page') is NOT enough — the apps must be clearly the same project.\n"
+        "3. If there is ANY doubt, return 'NEW'. Do NOT merge unrelated apps.\n"
+        "4. A ticket for 'Syngenta feedback form' is NOT the same as 'Cropwise grower dashboard' — they are separate apps.\n"
+        "Output ONLY the exact folder path (e.g. output/ASK-769) or the single word NEW."
     )
     user_prompt = (
         f"New Ticket: {ticket}\n"
-        f"Ticket Description or Data:\n{prompt[:2000]}\n\n"
+        f"New Ticket Full Description:\n{prompt[:2000]}\n\n"
         "Existing Folders:\n" + "\n".join(dir_info_str) +
-        "\nIs this new ticket part of the same application/project as one of the existing folders, or is it a fully isolated app? "
-        "Return the EXACT EXISTING FOLDER NAME (e.g., 'output/ASK-769') if it should be merged, otherwise return 'NEW'."
+        "\nDoes this ticket clearly belong to the SAME specific application as an existing folder? "
+        "If yes, return the EXACT folder path. If there is any doubt, return NEW."
     )
     
     try:

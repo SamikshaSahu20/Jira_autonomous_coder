@@ -1,26 +1,47 @@
-import React, { createContext, useState } from 'react';
-import { login as loginAPI } from '../utils/api';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+  const [user, setUser] = useState(null);
 
-  const login = async (credentials) => {
-    const response = await loginAPI(credentials);
-    localStorage.setItem('authToken', response.token);
-    setAuthToken(response.token);
+  const login = async (email, password) => {
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      setUser({ email });
+    } catch (error) {
+      throw error;
+    }
   };
 
   const logout = () => {
-    localStorage.removeItem('authToken');
-    setAuthToken(null);
+    localStorage.removeItem('token');
+    setUser(null);
   };
 
-  const isAuthenticated = () => !!authToken;
+  const isAuthenticated = () => !!localStorage.getItem('token');
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      // Fetch user details if needed
+      setUser({ email: 'user@example.com' }); // Replace with actual user data
+    }
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ authToken, login, logout, isAuthenticated }}>
+    <AuthContext.Provider value={{ user, login, logout, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

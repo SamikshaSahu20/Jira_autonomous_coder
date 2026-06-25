@@ -1,30 +1,31 @@
 import React from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+const DashboardChart = ({ title, type, data }) => {
+  const chartData = {
+    labels: data.labels,
+    datasets: data.datasets,
+  };
 
-function DashboardChart({ data, labels, options }) {
-    const chartData = {
-        labels: labels,
-        datasets: data,
-    };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: title,
+      },
+    },
+  };
 
-    const chartOptions = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: options.title || 'Chart',
-            },
-        },
-        ...options,
-    };
-
-    return <Line data={chartData} options={chartOptions} />;
-}
+  return (
+    <div>
+      <h2>{title}</h2>
+      <Chart type={type} data={chartData} options={options} />
+    </div>
+  );
+};
 
 export default DashboardChart;

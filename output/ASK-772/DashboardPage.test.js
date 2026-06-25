@@ -1,44 +1,24 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { AuthContext } from '../context/AuthContext';
-import DashboardPage from '../pages/DashboardPage';
-import { fetchAnalytics } from '../utils/api';
+import DashboardPage from './DashboardPage';
+import { fetchAnalyticsData } from './api';
 
-jest.mock('../utils/api');
+jest.mock('./api');
 
-describe('DashboardPage', () => {
-    it('renders loading state initially', () => {
-        render(
-            <AuthContext.Provider value={{ isAuthenticated: true }}>
-                <DashboardPage />
-            </AuthContext.Provider>
-        );
-        expect(screen.getByText(/loading/i)).toBeInTheDocument();
-    });
+test('renders loading state initially', () => {
+  fetchAnalyticsData.mockResolvedValueOnce({});
+  render(<DashboardPage />);
+  expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+});
 
-    it('renders analytics data after fetching', async () => {
-        fetchAnalytics.mockResolvedValue([
-            { data: [{ label: 'Test', data: [1, 2, 3] }], labels: ['Jan', 'Feb', 'Mar'], options: { title: 'Test Chart' } },
-        ]);
+test('renders analytics data', async () => {
+  fetchAnalyticsData.mockResolvedValueOnce({
+    cropYield: { labels: ['Jan'], datasets: [{ label: 'Crop Yield', data: [10] }] },
+    weatherPatterns: { labels: ['Sunny'], datasets: [{ label: 'Weather', data: [30] }] },
+    financialMetrics: { labels: ['Revenue'], datasets: [{ label: 'Finance', data: [100000] }] },
+  });
 
-        render(
-            <AuthContext.Provider value={{ isAuthenticated: true }}>
-                <DashboardPage />
-            </AuthContext.Provider>
-        );
-
-        await waitFor(() => expect(screen.getByText(/analytics dashboard/i)).toBeInTheDocument());
-        expect(screen.getByText(/test chart/i)).toBeInTheDocument();
-    });
-
-    it('renders error message on fetch failure', async () => {
-        fetchAnalytics.mockRejectedValue(new Error('Failed to fetch'));
-
-        render(
-            <AuthContext.Provider value={{ isAuthenticated: true }}>
-                <DashboardPage />
-            </AuthContext.Provider>
-        );
-
-        await waitFor(() => expect(screen.getByText(/failed to load analytics data/i)).toBeInTheDocument());
-    });
+  render(<DashboardPage />);
+  await waitFor(() => expect(screen.getByText(/Crop Yield Trends/i)).toBeInTheDocument());
+  expect(screen.getByText(/Weather Patterns/i)).toBeInTheDocument();
+  expect(screen.getByText(/Financial Metrics/i)).toBeInTheDocument();
 });

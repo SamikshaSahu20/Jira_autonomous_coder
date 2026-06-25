@@ -251,46 +251,81 @@ class ChatRequest(BaseModel):
 @app.post("/api/tickets/{ticket_key}/chat")
 def ticket_chat(ticket_key: str, req: ChatRequest, email: str = Depends(get_current_user)):
     manifest = load_manifest()
-    files = [e for e in manifest if e.get("ticket", "").upper() == ticket_key.upper()]
-    if not files:
-        raise HTTPException(status_code=404, detail="No files found")
-    
-    run_dir = resolve_run_dir(files[0].get("run_dir"))
-    if not run_dir.exists():
-        raise HTTPException(status_code=404, detail="Output directory not found")
 
-    # gather all non-markdown files
+    # Find run_dir — look for ANY manifest entry for this ticket
+    ticket_entries = [e for e in manifest if e.get("ticket", "").upper() == ticket_key.upper()]
+    if not ticket_entries:
+        raise HTTPException(status_code=404, detail="No generated files found for this ticket. Run the pipeline first.")
+
+    run_dir = resolve_run_dir(ticket_entries[0].get("run_dir"))
+    if not run_dir.exists():
+        raise HTTPException(status_code=404, detail="Output directory not found on disk.")
+
+    # Read ALL code files in the run_dir (entire merged folder context, not just one ticket's files)
     code_context = []
-    for sf in files:
-        fname = sf["filename"]
-        if not fname.endswith(".md") and not fname.endswith(".json"):
+    skip_exts = {".md", ".json"}
+    for f in sorted(run_dir.iterdir()):
+        if f.is_file() and f.suffix.lower() not in skip_exts:
             try:
-                content = (run_dir / fname).read_text(encoding="utf-8")
-                code_context.append(f"// {fname}\n{content}")
-            except:
+                content = f.read_text(encoding="utf-8")
+                code_context.append(f"// {f.name}\n{content}")
+            except Exception:
                 pass
-            
+
+    if not code_context:
+        raise HTTPException(status_code=404, detail="No source files found in output folder.")
+
     code_text = "\n\n".join(code_context)
-    
+
     from portkey_client import call_llm
-    import re
-    
-    sys_prompt = "You are an AI Coder handling a follow-up request. Provide updated source code strictly in markdown format based on user's new instructions. Only output the files that changed. EACH file must start with a `# filename.py` comment just inside the markdown block."
-    user_prompt = f"Existing Code:\n```\n{code_text}\n```\n\nNew Instruction:\n{req.message}"
-    
-    print(f"[webapp] Chat agent triggered for {ticket_key}: {req.message}")
-    response = call_llm(system_prompt=sys_prompt, user_prompt=user_prompt, agent="coder")
-    
     from generate import extract_all_code_blocks
+
+    sys_prompt = (
+        "You are an expert AI Coder making targeted changes to an existing codebase.\n"
+        "Rules:\n"
+        "1. Read the FULL existing code carefully before making any changes.\n"
+        "2. Output ONLY the files that were actually changed.\n"
+        "3. Output the COMPLETE file content — never truncate or summarise.\n"
+        "4. Each code block MUST start with a comment on line 1 containing the filename:\n"
+        "   - JavaScript/CSS: `// filename.js`\n"
+        "   - Python: `# filename.py`\n"
+        "   - HTML: `<!-- filename.html -->`\n"
+        "5. Do NOT include unchanged files in your output."
+    )
+    user_prompt = (
+        f"Existing codebase (folder: {run_dir.name}):\n\n"
+        f"```\n{code_text[:12000]}\n```\n\n"
+        f"User request:\n{req.message}"
+    )
+
+    print(f"[webapp] Ask Agent triggered for {ticket_key}: {req.message[:80]}")
+    response = call_llm(system_prompt=sys_prompt, user_prompt=user_prompt, agent="coder")
+
     blocks = extract_all_code_blocks(response)
     updated = []
-    
+
     for b in blocks:
-        if b["code"].strip():
-            (run_dir / b["filename"]).write_text(b["code"].strip(), encoding="utf-8")
+        if b["code"].strip() and b["filename"] != "generated_code.txt":
+            file_path = run_dir / b["filename"]
+            file_path.write_text(b["code"].strip(), encoding="utf-8")
             updated.append(b["filename"])
-            
-    return {"status": "success", "updated": updated, "message": f"Updated {len(updated)} files."}
+
+            # Add to manifest if it's a new file not already tracked
+            already_tracked = any(
+                e.get("filename") == b["filename"] and e.get("ticket", "").upper() == ticket_key.upper()
+                for e in manifest
+            )
+            if not already_tracked:
+                from manifest import add_to_manifest
+                add_to_manifest(
+                    story=req.message,
+                    filename=b["filename"],
+                    run_dir=str(run_dir),
+                    summary=f"Added via Ask Agent: {req.message[:80]}",
+                    ticket=ticket_key,
+                )
+
+    return {"status": "success", "updated": updated, "message": f"Updated {len(updated)} file(s)."}
 
 RUNNING_APPS = {}
 

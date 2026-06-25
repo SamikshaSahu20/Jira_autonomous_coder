@@ -1,44 +1,54 @@
-import React, { useContext, useEffect, useState } from 'react';
-import AuthContext from '../context/AuthContext';
-import { fetchAnalytics } from '../utils/api';
-import DashboardChart from '../components/DashboardChart';
+import React, { useEffect, useState } from 'react';
+import DashboardChart from './DashboardChart';
+import { fetchAnalyticsData } from './api';
 
-function DashboardPage() {
-    const { isAuthenticated } = useContext(AuthContext);
-    const [analyticsData, setAnalyticsData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+const DashboardPage = () => {
+  const [analyticsData, setAnalyticsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            fetchAnalytics()
-                .then(data => {
-                    setAnalyticsData(data);
-                    setLoading(false);
-                })
-                .catch(err => {
-                    setError('Failed to load analytics data');
-                    setLoading(false);
-                });
-        }
-    }, [isAuthenticated]);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchAnalyticsData();
+        setAnalyticsData(data);
+      } catch (err) {
+        setError('Failed to load analytics data.');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    loadData();
+  }, []);
 
-    return (
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      {analyticsData && (
         <div>
-            <h1>Analytics Dashboard</h1>
-            {analyticsData && analyticsData.map((chartData, index) => (
-                <DashboardChart
-                    key={index}
-                    data={chartData.data}
-                    labels={chartData.labels}
-                    options={chartData.options}
-                />
-            ))}
+          <DashboardChart
+            title="Crop Yield Trends"
+            type="line"
+            data={analyticsData.cropYield}
+          />
+          <DashboardChart
+            title="Weather Patterns"
+            type="bar"
+            data={analyticsData.weatherPatterns}
+          />
+          <DashboardChart
+            title="Financial Metrics"
+            type="pie"
+            data={analyticsData.financialMetrics}
+          />
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};
 
 export default DashboardPage;

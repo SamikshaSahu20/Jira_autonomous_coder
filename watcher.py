@@ -40,40 +40,31 @@ def check_and_trigger():
 
         sprint_id   = sprint["id"]
         sprint_name = sprint["name"]
-        
+
         stories = get_sprint_stories(sprint_id)
+
+        # Show all tickets and their statuses
+        print(f"[watcher] {datetime.now().strftime('%H:%M:%S')}  '{sprint_name}' — {len(stories)} ticket(s) in sprint:")
+        for s in stories:
+            print(f"           {s['ticket']}  [{s['status']}]  {s['summary'][:60]}")
+
         in_progress = [s for s in stories if s["status"].lower() == "in progress"]
+        print(f"[watcher] {len(in_progress)} ticket(s) 'In Progress' → running pipeline...")
 
-        print(f"[watcher] {datetime.now().strftime('%H:%M:%S')}  '{sprint_name}' -- Found {len(in_progress)} tickets 'In Progress'.")
-
-        # Track processed tickets to avoid re-processing
-        state = load_state()
-        processed = state.get("processed_tickets", [])
-        
-        new_tickets = [t for t in in_progress if t["ticket"] not in processed]
-        
-        if new_tickets:
-            print(f"[watcher] Found {len(new_tickets)} NEW ticket(s) to process")
+        if in_progress:
+            # Jira status is the source of truth — always run the pipeline for In Progress tickets
             succeeded = run_pipeline(sprint_id, sprint_name) or set()
 
-            # Only mark tickets that actually succeeded
-            for ticket in new_tickets:
-                if ticket["ticket"] in succeeded and ticket["ticket"] not in processed:
-                    processed.append(ticket["ticket"])
-
-            state["processed_tickets"] = processed
-            state["last_run"] = datetime.now().isoformat()
+            state = {
+                "last_run": datetime.now().isoformat(),
+                "last_processed": sorted(succeeded),
+            }
             save_state(state)
-            if succeeded:
-                print(f"[watcher] State saved. Successfully processed: {sorted(succeeded)}")
-            else:
-                print(f"[watcher] No tickets succeeded — state not updated for failed tickets")
         else:
-            print(f"[watcher] No new tickets to process (all seen before)")
-    
+            print(f"[watcher] Nothing to do.")
+
     except json.JSONDecodeError as e:
         print(f"[watcher] X JSON PARSE ERROR: {e}")
-        print(f"[watcher] This usually means an API response was empty or malformed")
     except Exception as e:
         print(f"[watcher] X ERROR: {type(e).__name__}: {e}")
         import traceback

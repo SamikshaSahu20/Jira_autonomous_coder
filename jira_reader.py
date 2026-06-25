@@ -52,7 +52,7 @@ def get_sprint_stories(sprint_id: int) -> list[dict]:
         params = {
             "startAt":    start,
             "maxResults": max_results,
-            "fields":     "summary,description,status,story_points,issuetype",
+            "fields":     "summary,description,status,issuetype,priority,labels,assignee,reporter,customfield_10016,customfield_10014,comment,subtasks,issuelinks",
         }
         resp = _session().get(url, params=params)
         resp.raise_for_status()
@@ -62,13 +62,34 @@ def get_sprint_stories(sprint_id: int) -> list[dict]:
         for issue in issues:
             fields = issue.get("fields", {})
             desc_raw = fields.get("description") or ""
+            # Extract comments
+            comments_raw = fields.get("comment", {}).get("comments", [])
+            recent_comments = [
+                c.get("body", "") if isinstance(c.get("body"), str) else _extract_description(c.get("body", ""))
+                for c in comments_raw[-3:]  # last 3 comments
+            ]
+
+            # Extract linked issues
+            linked = [
+                f"{lnk.get('type', {}).get('name', '')} {(lnk.get('inwardIssue') or lnk.get('outwardIssue') or {}).get('key', '')}"
+                for lnk in fields.get("issuelinks", [])
+            ]
+
             stories.append({
-                "ticket":       issue["key"],
-                "summary":      fields.get("summary", ""),
-                "description":  _extract_description(desc_raw),
-                "status":       fields.get("status", {}).get("name", ""),
-                "story_points": fields.get("story_points") or fields.get("customfield_10016") or 0,
-                "issue_type":   fields.get("issuetype", {}).get("name", ""),
+                "ticket":        issue["key"],
+                "summary":       fields.get("summary", ""),
+                "description":   _extract_description(desc_raw),
+                "status":        fields.get("status", {}).get("name", ""),
+                "story_points":  fields.get("customfield_10016") or 0,
+                "issue_type":    fields.get("issuetype", {}).get("name", ""),
+                "priority":      (fields.get("priority") or {}).get("name", ""),
+                "labels":        fields.get("labels", []),
+                "assignee":      (fields.get("assignee") or {}).get("displayName", "Unassigned"),
+                "reporter":      (fields.get("reporter") or {}).get("displayName", "Unknown"),
+                "epic_link":     fields.get("customfield_10014", ""),
+                "comments":      recent_comments,
+                "linked_issues": linked,
+                "subtasks":      [s["key"] for s in fields.get("subtasks", [])],
             })
 
         total = data.get("total", 0)
@@ -142,12 +163,32 @@ def get_backlog_issues(board_id: int, sprint_name_filter: str = None) -> list[di
 
 
 def build_prompt_from_story(story: dict) -> str:
-    """Turn a Jira story dict into a prompt string for the code generator."""
+    """Turn a Jira story dict into a full prompt string for the code generator."""
     parts = [f"Ticket: {story['ticket']}"]
     if story.get("summary"):
-        parts.append(f"Story: {story['summary']}")
+        parts.append(f"Title: {story['summary']}")
+    if story.get("issue_type"):
+        parts.append(f"Type: {story['issue_type']}")
+    if story.get("priority"):
+        parts.append(f"Priority: {story['priority']}")
+    if story.get("story_points"):
+        parts.append(f"Story Points: {story['story_points']}")
+    if story.get("assignee"):
+        parts.append(f"Assignee: {story['assignee']}")
+    if story.get("reporter"):
+        parts.append(f"Reporter: {story['reporter']}")
+    if story.get("labels"):
+        parts.append(f"Labels: {', '.join(story['labels'])}")
+    if story.get("epic_link"):
+        parts.append(f"Epic: {story['epic_link']}")
+    if story.get("linked_issues"):
+        parts.append(f"Linked Issues: {', '.join(story['linked_issues'])}")
+    if story.get("subtasks"):
+        parts.append(f"Subtasks: {', '.join(story['subtasks'])}")
     if story.get("description"):
-        parts.append(f"Details:\n{story['description']}")
+        parts.append(f"Description:\n{story['description']}")
+    if story.get("comments"):
+        parts.append(f"Recent Comments:\n" + "\n---\n".join(story['comments']))
     return "\n\n".join(parts)
 
 

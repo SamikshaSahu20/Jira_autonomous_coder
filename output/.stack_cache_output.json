@@ -5,16 +5,12 @@
   "orm": "mongoose",
   "auth": null,
   "other_libraries": [
-    "react",
-    "framer-motion",
-    "prop-types",
-    "supertest",
-    "jest"
+    "supertest"
   ],
   "conventions": [
-    "uses MVC pattern with controllers and models",
-    "React components for UI",
-    "unit tests for components and controllers"
+    "uses controllers for request handling",
+    "uses Mongoose schemas for data modeling",
+    "separates routes into dedicated files"
   ],
-  "file_structure": "controllers/, models/, components/"
+  "file_structure": "controllers/, models/, routes/, public/"
 }
