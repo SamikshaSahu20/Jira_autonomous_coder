@@ -50,6 +50,105 @@ def record_run(sprint_id, sprint_name, story, files_saved):
     pass
 
 
+# -- Dependency graph ----------------------------------------------------------
+
+OUTPUT_DIR = Path("output")
+
+# Jira link types that mean "this ticket needs the other one done first"
+_BLOCKING_LINK_TYPES = {
+    "is blocked by", "blocked by", "depends on", "depends upon",
+    "is child of", "clones", "is cloned by",
+}
+
+
+def _extract_ticket_refs(text: str) -> set[str]:
+    """Return all Jira-style ticket keys found in a block of text."""
+    return set(re.findall(r"\b[A-Z]+-\d+\b", text or ""))
+
+
+def build_dependency_graph(stories: list[dict]) -> dict[str, set[str]]:
+    """
+    Returns {ticket: {dep_ticket, ...}} where dep_ticket must be done
+    before ticket can be coded.
+
+    Sources checked (in order):
+      1. issuelinks with a blocking-type relationship
+      2. Any ticket key mentioned in description or comments
+         that is also in this sprint (sibling reference)
+    """
+    sprint_tickets = {s["ticket"] for s in stories}
+    deps: dict[str, set[str]] = {s["ticket"]: set() for s in stories}
+
+    for story in stories:
+        ticket = story["ticket"]
+
+        # 1. Explicit Jira link types
+        for link_str in story.get("linked_issues", []):
+            link_lower = link_str.lower()
+            # link_str is like "is blocked by ASK-770"
+            for blocking_type in _BLOCKING_LINK_TYPES:
+                if link_lower.startswith(blocking_type):
+                    refs = _extract_ticket_refs(link_str)
+                    deps[ticket].update(refs - {ticket})
+
+        # 2. Ticket keys mentioned in description / comments
+        #    Only count same-sprint siblings (avoids noise from unrelated refs)
+        text_refs = _extract_ticket_refs(story.get("description", ""))
+        for c in story.get("comments", []):
+            text_refs.update(_extract_ticket_refs(c))
+        sibling_refs = (text_refs & sprint_tickets) - {ticket}
+        deps[ticket].update(sibling_refs)
+
+    return deps
+
+
+def print_dependency_graph(stories: list[dict], deps: dict[str, set[str]]) -> None:
+    """Pretty-print a dependency graph before the pipeline run starts."""
+    status_map = {s["ticket"]: s["status"] for s in stories}
+    print("  Dependency Graph")
+    print("  " + "-" * 40)
+    for story in stories:
+        ticket = story["ticket"]
+        status = status_map[ticket]
+        d = deps.get(ticket, set())
+        if d:
+            dep_strs = []
+            for dep in sorted(d):
+                dep_status = status_map.get(dep, _folder_status(dep))
+                dep_strs.append(f"{dep} [{dep_status}]")
+            print(f"  {ticket} [{status}]  needs  {', '.join(dep_strs)}")
+        else:
+            print(f"  {ticket} [{status}]  (no deps)")
+    print()
+
+
+def _folder_status(ticket: str) -> str:
+    """
+    Fallback status check for tickets not in the current sprint:
+    if an output folder exists for the ticket, treat it as 'Done'.
+    """
+    pattern = ticket.upper()
+    for folder in OUTPUT_DIR.iterdir() if OUTPUT_DIR.exists() else []:
+        if folder.is_dir() and pattern in folder.name.upper():
+            return "Done"
+    return "To Do"
+
+
+def dependencies_ready(ticket: str, deps: dict[str, set[str]],
+                       status_map: dict[str, str]) -> tuple[bool, list[str]]:
+    """
+    Returns (ready, [blocking_ticket, ...]).
+    A dependency is considered blocking if its status is 'To Do'
+    AND no output folder exists for it.
+    """
+    blocking = []
+    for dep in deps.get(ticket, set()):
+        dep_status = status_map.get(dep, _folder_status(dep))
+        if dep_status.lower() == "to do":
+            blocking.append(f"{dep} [To Do]")
+    return (len(blocking) == 0), blocking
+
+
 def get_full_explanation(response: str) -> str:
     """Agent 4 (Reviewer): Analyzes the generated code and posts a structured code review summary to Jira."""
     from portkey_client import call_llm
@@ -103,6 +202,11 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
 
     print(f"[pipeline] Found {len(stories)} stories\n")
 
+    # Build dependency graph from linked issues + description refs
+    deps       = build_dependency_graph(stories)
+    status_map = {s["ticket"]: s["status"] for s in stories}
+    print_dependency_graph(stories, deps)
+
     succeeded = set()
 
     for i, story in enumerate(stories, 1):
@@ -115,6 +219,12 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
             print(f"  -> Skipping (Ticket is not 'In Progress')\n")
             continue
 
+        # Dependency check — skip if any dependency is still To Do
+        ready, blocking = dependencies_ready(ticket, deps, status_map)
+        if not ready:
+            print(f"  -> Skipping (blocked by unfinished dependencies: {', '.join(blocking)})\n")
+            continue
+
         if dry_run:
             print(f"  [dry-run] Would generate code for: {ticket}")
             continue
@@ -124,7 +234,7 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
             prompt   = build_prompt_from_story(story)
             
             print(f"  -> Generating code...")
-            response = generate_code(prompt, ticket=ticket, model=model)
+            response, pre_run_dir = generate_code(prompt, ticket=ticket, model=model)
             
             # Validate response
             if not response or not isinstance(response, str):
@@ -138,7 +248,7 @@ def run_pipeline(sprint_id: int, sprint_name: str = "", dry_run: bool = False, m
                  raise Exception("LLM returned an invalid or completely empty code response")
 
             print(f"  -> Saving output...")
-            run_dir  = save_output(prompt, response, ticket=ticket)
+            run_dir  = save_output(prompt, response, ticket=ticket, existing_run_dir=pre_run_dir)
             files    = [f.name for f in run_dir.iterdir() if f.suffix != ".md"]
             print(f"  OK Saved {len(files)} file(s): {', '.join(files)}")
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number Game</title>
+  <link rel="stylesheet" href="gameStyles.css">
+</head>
+<body>
+  <div class="landing-page">
+    <header>
+      <h1>Guess the Number</h1>
+      <p>Can you guess the secret number? Test your skills and climb the leaderboard!</p>
+      <button id="theme-toggle">Toggle Theme</button>
+    </header>
+    <main>
+      <button id="start-game">Start Game</button>
+      <div id="leaderboard-preview">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboard-list">
+          <!-- Leaderboard data will be dynamically loaded here -->
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('start-game').addEventListener('click', () => {
+      fetch('/game/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ playerId: '12345', difficulty: 'Medium' })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        // Redirect to game page
+        window.location.href = '/game.html?gameId=' + data.gameId;
+      })
+      .catch(err => console.error('Error starting game:', err));
+    });
+
+    // Fetch leaderboard preview
+    fetch('/leaderboard')
+      .then(response => response.json())
+      .then(data => {
+        const leaderboardList = document.getElementById('leaderboard-list');
+        data.forEach(player => {
+          const li = document.createElement('li');
+          li.textContent = `${player.name}: ${player.score}`;
+          leaderboardList.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Error fetching leaderboard:', err));
+
+    // Theme toggle functionality
+    const themeToggleButton = document.getElementById('theme-toggle');
+    themeToggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+    });
+  </script>
+</body>
+</html>

@@ -134,22 +134,34 @@ def _load_cache(repo_path: str) -> dict | None:
     return None
 
 
-def get_project_stack(force_refresh=False):
-    samples = _collect_code_samples("output")
+def get_project_stack(force_refresh=False, run_dir: str = None):
+    """
+    Detect the tech stack for a specific application folder.
 
-    if not samples:
-        print(f"[context] No existing output found — LLM will choose best stack")
+    - run_dir  : path to the specific app folder being modified (e.g. "output/ASK-769-770").
+                 When None (new application), returns None immediately so the LLM
+                 picks the best stack freely.
+    """
+    if not run_dir:
+        # New application — don't impose a stack from an unrelated existing app
+        print(f"[context] New application — LLM will choose best stack")
         return None
 
-    cached = _load_cache("output")
+    samples = _collect_code_samples(run_dir)
+
+    if not samples:
+        print(f"[context] No code samples found in {run_dir} — LLM will choose best stack")
+        return None
+
+    cached = _load_cache(run_dir)
     if cached and not force_refresh:
-        print(f"[context] Using cached stack: {cached.get('language')} / {cached.get('framework')}")
+        print(f"[context] Using cached stack for {run_dir}: {cached.get('language')} / {cached.get('framework')}")
         return cached
 
-    print(f"[context] Detecting stack from output/ ({len(samples)} files scanned)...")
+    print(f"[context] Detecting stack from {run_dir} ({len(samples)} files scanned)...")
     try:
         stack = _extract_stack_via_llm(samples)
-        _save_cache(stack, "output")
+        _save_cache(stack, run_dir)
         print(f"[context] Stack detected: {stack.get('language')} / {stack.get('framework')}")
         return stack
     except Exception as e:
@@ -157,11 +169,19 @@ def get_project_stack(force_refresh=False):
         return None
 
 
-def format_stack_for_prompt(stack):
+def format_stack_for_prompt(stack, run_dir: str = None) -> str:
+    """
+    Format stack + flowcharts for the Analyst prompt.
+
+    - stack    : dict returned by get_project_stack(), or None.
+    - run_dir  : the specific app folder being modified.  Only flowcharts
+                 inside that folder are included.  When None (new app)
+                 no flowcharts are injected.
+    """
     lines = []
-    
+
     if stack:
-        lines.append("## Existing Project Stack (you MUST follow this)")
+        lines.append("## Existing Project Stack (follow this for the files you are modifying)")
         if stack.get("language"):
             lines.append(f"- Language: {stack['language']}")
         if stack.get("framework"):
@@ -178,21 +198,23 @@ def format_stack_for_prompt(stack):
             lines.append(f"- File structure: {stack['file_structure']}")
         if stack.get("conventions"):
             lines.append(f"- Conventions: {', '.join(stack['conventions'])}")
-            
-    # Include flow charts for existing features so the agent doesn't rebuild them from scratch
-    flowchart_contents = []
-    output_dir = Path("output")
-    if output_dir.exists():
-        for md_file in output_dir.rglob("flowchart_*.md"):
-            try:
-                content = md_file.read_text(encoding="utf-8")
-                flowchart_contents.append(f"### Flowchart mapping: {md_file.name}\n{content}")
-            except Exception:
-                pass
-                
-    if flowchart_contents:
-        lines.append("\n## Existing Application Architecture / Flowcharts")
-        lines.append("The following Mermaid flowcharts map out ALREADY GENERATED components. Instead of creating new separate folders/files for duplicate logic, read these flowcharts to strictly MODIFY the existing components if the current task extends or relates to them:\n")
-        lines.append("\n\n".join(flowchart_contents))
+
+    # Only load flowcharts from the specific app being modified.
+    # Injecting flowcharts from OTHER apps confuses the LLM into thinking
+    # it should reuse or modify those unrelated components.
+    if run_dir:
+        flowchart_contents = []
+        app_dir = Path(run_dir)
+        if app_dir.exists():
+            for md_file in sorted(app_dir.glob("flowchart_*.md")):
+                try:
+                    content = md_file.read_text(encoding="utf-8")
+                    flowchart_contents.append(f"### {md_file.name}\n{content}")
+                except Exception:
+                    pass
+        if flowchart_contents:
+            lines.append("\n## Architecture of the Application You Are Modifying")
+            lines.append("Use these flowcharts to understand the EXISTING structure before adding or changing anything:\n")
+            lines.append("\n\n".join(flowchart_contents))
 
     return "\n".join(lines)

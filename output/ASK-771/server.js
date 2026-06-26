@@ -23,5 +23,9 @@ app.get('*', (req, res) => {
 
 // Start server and connect to DB
 app.listen(process.env.PORT || 3000, () => console.log('Server on port ' + (process.env.PORT || 3000)));
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/cropwise-grower-metrics')
-  .catch(e => console.error('DB connection error:', e.message));
+
+// Auto-patched: Express starts immediately; DB connects in background
+app.listen(process.env.PORT || 63717, () => console.log('[preview] Server on port ' + (process.env.PORT || 63717)));
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/preview')
+  .then(() => console.log('[preview] MongoDB connected'))
+  .catch(e => console.warn('[preview] MongoDB unavailable:', e.message));

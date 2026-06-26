@@ -12,10 +12,10 @@ from manifest import format_manifest_for_prompt, add_to_manifest, load_manifest,
 load_dotenv()
 
 
-def refine_requirements(prompt: str, ticket: str = "custom", model: str = None, force_refresh: bool = False) -> str:
-    stack = get_project_stack(force_refresh=force_refresh)
-    stack_context = format_stack_for_prompt(stack)
-    manifest_context = format_manifest_for_prompt()
+def refine_requirements(prompt: str, ticket: str = "custom", model: str = None, force_refresh: bool = False, target_run_dir: str = None) -> str:
+    stack = get_project_stack(force_refresh=force_refresh, run_dir=target_run_dir)
+    stack_context = format_stack_for_prompt(stack, run_dir=target_run_dir)
+    manifest_context = format_manifest_for_prompt(target_run_dir=target_run_dir)
 
     system_prompt = f"""You are an elite Software Architect and Business Analyst.
 Your task is to take a (potentially vague) Jira ticket and the current project context, and output a highly detailed, extremely strict development prompt/specification for a Coder Agent.
@@ -44,8 +44,29 @@ Make sure to format the specification with sections like:
     )
 
 
+def _load_frontend_design_skill() -> str:
+    """Reads the frontend-design SKILL.md and returns its content, or empty string if not found."""
+    skill_path = Path(__file__).resolve().parent / ".agents" / "skills" / "frontend-design" / "SKILL.md"
+    if skill_path.exists():
+        try:
+            return skill_path.read_text(encoding="utf-8")
+        except Exception:
+            pass
+    return ""
+
+
 def generate_source_code(refined_prompt: str, model: str = None) -> str:
-    system_prompt = """You are an elite Senior Full-Stack Software Engineer who writes code that RUNS PERFECTLY on first execution.
+    skill_content = _load_frontend_design_skill()
+    design_section = f"""
+== FRONTEND DESIGN GUIDELINES FOR index.html ==
+Apply the following design skill to the index.html you generate. Read it fully before writing any HTML/CSS.
+
+{skill_content}
+
+When generating index.html, follow these skill guidelines exactly for palette, typography, layout, signature element, motion, and copy.
+""" if skill_content else ""
+
+    system_prompt = f"""You are an elite Senior Full-Stack Software Engineer who writes code that RUNS PERFECTLY on first execution.
 
 Based on the provided specification, generate the EXACT source code needed.
 
@@ -62,7 +83,7 @@ Based on the provided specification, generate the EXACT source code needed.
 5. The index.html frontend MUST make API calls to the Express backend routes using fetch().
 6. Use process.env.PORT for the server port, defaulting to 3000.
 7. Generate 100% accurate, bug-free code. No placeholders.
-
+{design_section}
 Write every file as a SEPARATE code block. Each block MUST start with a comment on the very first line containing the exact filename.
 
 ## CODE
@@ -141,8 +162,20 @@ def generate_code(prompt: str, ticket: str = "custom", model: str = None, force_
     import time
     try:
         t0 = time.time()
+
+        # Pre-compute routing BEFORE the Analyst so it gets the right manifest context:
+        # - Existing app  → pass only that app's files (MODIFY workflow)
+        # - New app       → pass only app names as reference (CREATE workflow)
+        manifest = load_manifest()
+        pre_run_dir = determine_run_dir(ticket, prompt, manifest)
+        target_run_dir_str = str(pre_run_dir) if pre_run_dir else None
+        if target_run_dir_str:
+            print(f"[generate] Routing: will modify existing app at {target_run_dir_str}")
+        else:
+            print(f"[generate] Routing: new application — Analyst will CREATE fresh files")
+
         print(f"[generate] Agent 1 (Analyst) refining requirements from Jira...")
-        refined_prompt = refine_requirements(prompt, ticket, model, force_refresh)
+        refined_prompt = refine_requirements(prompt, ticket, model, force_refresh, target_run_dir=target_run_dir_str)
         t1 = time.time()
         
         if not refined_prompt or refined_prompt.strip() == "":
@@ -183,7 +216,9 @@ def generate_code(prompt: str, ticket: str = "custom", model: str = None, force_
         # Inject timings into final_output so save_output can parse it implicitly
         timings = f"\n\n```json\n// timings.json\n{{\"analyst\": {t1-t0}, \"coder\": {t2-t1}, \"tester\": {t3-t2}}}\n```\n"
         
-        return final_output + timings
+        # Return both the response and the pre-computed run_dir so save_output
+        # doesn't need a second AI routing call.
+        return final_output + timings, pre_run_dir
     except Exception as e:
         print(f"[generate] X CRITICAL ERROR: {type(e).__name__}: {e}")
         raise
@@ -346,12 +381,15 @@ def determine_run_dir(ticket: str, prompt: str, manifest: list) -> Path:
     return None
 
 
-def save_output(prompt: str, response: str, ticket: str = None) -> Path:
+def save_output(prompt: str, response: str, ticket: str = None, existing_run_dir: Path = None) -> Path:
     blocks = extract_all_code_blocks(response)
     manifest = load_manifest()
     
-    # 1. Determine if we are updating an existing application folder using AI routing
-    existing_run_dir = determine_run_dir(ticket, prompt, manifest)
+    # 1. Determine if we are updating an existing application folder.
+    # Accept a pre-computed value from generate_code (avoids a second AI call
+    # and ensures the Analyst used the same routing decision).
+    if existing_run_dir is None:
+        existing_run_dir = determine_run_dir(ticket, prompt, manifest)
 
     run_dir = None
     if existing_run_dir and ticket:
@@ -564,8 +602,8 @@ def main():
         print("ERROR: No prompt provided.")
         sys.exit(1)
 
-    response = generate_code(prompt, model=args.model, force_refresh=args.refresh)
-    output_dir = save_output(prompt, response, ticket=args.ticket)
+    response, pre_run_dir = generate_code(prompt, model=args.model, force_refresh=args.refresh)
+    output_dir = save_output(prompt, response, ticket=args.ticket, existing_run_dir=pre_run_dir)
 
     print(f"\n[done] Output saved to: {output_dir.resolve()}")
     print(f"       Full response:   {output_dir.resolve()}\\response.md")
