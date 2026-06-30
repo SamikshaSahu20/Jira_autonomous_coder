@@ -1,0 +1,16 @@
+{
+  "language": "javascript",
+  "framework": "react and express",
+  "database": null,
+  "orm": null,
+  "auth": null,
+  "other_libraries": [
+    "morgan"
+  ],
+  "conventions": [
+    "uses service layer for business logic",
+    "modularized components for React",
+    "separation of concerns with controllers and routes in Express"
+  ],
+  "file_structure": "components/, services/, controllers/, routes/"
+}

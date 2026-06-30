@@ -50,7 +50,7 @@ A **React + FastAPI web dashboard** lets team members log in, inspect every tick
                    └──────┬──────┘
                           │ sprint stories
                    ┌──────▼──────┐
-                   │  watcher.py │  polls every N minutes
+                   │  watcher.py │  polls every 5 minutes
                    └──────┬──────┘
                           │ "In Progress" tickets
                    ┌──────▼──────┐

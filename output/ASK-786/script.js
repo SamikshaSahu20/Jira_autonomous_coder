@@ -32,7 +32,10 @@ class Calculator {
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
 
-    if (isNaN(prev) || isNaN(current)) return;
+    if (isNaN(prev) || isNaN(current)) {
+      this.displayError('Invalid input');
+      return;
+    }
 
     const operations = {
       '+': (a, b) => a + b,
@@ -42,17 +45,30 @@ class Calculator {
     };
 
     const computation = operations[this.operation];
-    if (!computation) return;
+    if (!computation) {
+      this.displayError('Invalid operation');
+      return;
+    }
 
     const result = computation(prev, current);
     if (result === 'Error') {
-      this.currentOperand = 'Error';
+      this.displayError('Division by zero');
     } else {
       this.currentOperand = result;
     }
     this.operation = undefined;
     this.previousOperand = '';
     this.updateDisplay();
+  }
+
+  displayError(message) {
+    this.currentOperand = message;
+    this.previousOperand = '';
+    this.operation = undefined;
+    this.updateDisplay();
+    setTimeout(() => {
+      this.clear();
+    }, 2000); // Clear the display after 2 seconds
   }
 
   updateDisplay() {
@@ -81,4 +97,10 @@ document.querySelector('#equals').addEventListener('click', () => {
 
 document.querySelector('#clear').addEventListener('click', () => {
   calculator.clear();
+});
+
+// Theme toggle functionality
+const themeToggleButton = document.querySelector('#theme-toggle');
+themeToggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
 });

@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: var(--background-color, #f4f4f4);
+  color: var(--text-color, #000);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@ main {
 }
 
 #calculator {
-  background: #fff;
+  background: var(--calculator-bg-color, #fff);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 300px;
@@ -21,8 +22,8 @@ main {
 }
 
 #display {
-  background: #222;
-  color: #fff;
+  background: var(--display-bg-color, #222);
+  color: var(--display-text-color, #fff);
   font-size: 2rem;
   padding: 10px;
   border-radius: 4px;
@@ -45,24 +46,44 @@ button {
 }
 
 button.digit {
-  background: #f0f0f0;
+  background: var(--digit-bg-color, #f0f0f0);
+  color: var(--digit-text-color, #000);
 }
 
 button.operation {
-  background: #ff9f43;
-  color: #fff;
+  background: var(--operation-bg-color, #ff9f43);
+  color: var(--operation-text-color, #fff);
 }
 
 button#clear {
-  background: #ff6b6b;
-  color: #fff;
+  background: var(--clear-bg-color, #ff6b6b);
+  color: var(--clear-text-color, #fff);
 }
 
 button#equals {
-  background: #1dd1a1;
-  color: #fff;
+  background: var(--equals-bg-color, #1dd1a1);
+  color: var(--equals-text-color, #fff);
 }
 
 button:hover {
   opacity: 0.9;
+}
+
+/* Dark theme variables */
+body.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --button-bg-color: #333333;
+  --button-text-color: #ffffff;
+  --calculator-bg-color: #1e1e1e;
+  --display-bg-color: #333333;
+  --display-text-color: #ffffff;
+  --digit-bg-color: #444444;
+  --digit-text-color: #ffffff;
+  --operation-bg-color: #ff9f43;
+  --operation-text-color: #ffffff;
+  --clear-bg-color: #ff6b6b;
+  --clear-text-color: #ffffff;
+  --equals-bg-color: #1dd1a1;
+  --equals-text-color: #ffffff;
 }

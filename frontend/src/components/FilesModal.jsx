@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { getTicketFiles, runTicketApp, sendTicketChat } from '../utils/api';
+import { getTicketFiles, runTicketApp, stopTicketApp, sendTicketChat } from '../utils/api';
 import {
   X, FileText, Clock, Loader2, Copy, CheckCircle,
   ExternalLink, Activity, ShieldCheck, Send, MessageSquare,
@@ -289,7 +289,7 @@ export default function FilesModal({ ticketKey, onClose }) {
                     <a href={appUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-600 rounded-lg transition-colors">
                       <ExternalLink className="w-3.5 h-3.5" /> Open Tab
                     </a>
-                    <button onClick={() => { setAppUrl(null); setRunError(null); }} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-600 rounded-lg transition-colors">
+                    <button onClick={async () => { await stopTicketApp(ticketKey); setAppUrl(null); setRunError(null); }} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-600 rounded-lg transition-colors">
                       <RefreshCw className="w-3.5 h-3.5" /> Restart
                     </button>
                   </div>

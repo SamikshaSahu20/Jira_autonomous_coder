@@ -144,6 +144,8 @@ def tickets(email: str = Depends(get_current_user)):
         key = entry.get("ticket", "").upper()
         manifest_by_ticket.setdefault(key, []).append(entry)
 
+    output_dir = BASE_DIR / "output"
+
     for ticket in jira_tickets:
         key = ticket["ticket"].upper()
         generated = manifest_by_ticket.get(key, [])
@@ -155,25 +157,52 @@ def tickets(email: str = Depends(get_current_user)):
             if rd and resolve_run_dir(rd).exists():
                 valid_generated.append(e)
 
-        ticket["generated_files"] = [e["filename"] for e in valid_generated]
-        ticket["code_generated"] = len(valid_generated) > 0
-        ticket["last_generated"] = max(
-            (e.get("last_modified", "") for e in valid_generated), default=None
-        ) if valid_generated else None
+        # Fallback: if no manifest entry, scan output/ for a folder whose name
+        # contains the ticket number (e.g. output/ASK-771, output/ASK-771-772)
+        disk_run_dir = None
+        if not valid_generated and output_dir.exists():
+            for folder in output_dir.iterdir():
+                if folder.is_dir() and key in folder.name.upper():
+                    disk_run_dir = folder
+                    break
 
-        ticket["bugs_found"] = 0
-        ticket["bugs_fixed"] = 0
-        if valid_generated:
-            run_dir = valid_generated[0].get("run_dir")
-            if run_dir:
-                try:
-                    metrics_path = resolve_run_dir(run_dir) / "metrics.json"
-                    if metrics_path.exists():
-                        metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-                        ticket["bugs_found"] = metrics.get("bugs_found", 0)
-                        ticket["bugs_fixed"] = metrics.get("bugs_fixed", 0)
-                except:
-                    pass
+        if disk_run_dir:
+            disk_files = [f.name for f in disk_run_dir.iterdir()
+                          if f.is_file() and not f.name.startswith(".")]
+            ticket["generated_files"] = disk_files
+            ticket["code_generated"] = len(disk_files) > 0
+            mtime = max((f.stat().st_mtime for f in disk_run_dir.iterdir() if f.is_file()), default=None)
+            ticket["last_generated"] = datetime.fromtimestamp(mtime).isoformat() if mtime else None
+            ticket["bugs_found"] = 0
+            ticket["bugs_fixed"] = 0
+            try:
+                metrics_path = disk_run_dir / "metrics.json"
+                if metrics_path.exists():
+                    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+                    ticket["bugs_found"] = metrics.get("bugs_found", 0)
+                    ticket["bugs_fixed"] = metrics.get("bugs_fixed", 0)
+            except:
+                pass
+        else:
+            ticket["generated_files"] = [e["filename"] for e in valid_generated]
+            ticket["code_generated"] = len(valid_generated) > 0
+            ticket["last_generated"] = max(
+                (e.get("last_modified", "") for e in valid_generated), default=None
+            ) if valid_generated else None
+
+            ticket["bugs_found"] = 0
+            ticket["bugs_fixed"] = 0
+            if valid_generated:
+                run_dir = valid_generated[0].get("run_dir")
+                if run_dir:
+                    try:
+                        metrics_path = resolve_run_dir(run_dir) / "metrics.json"
+                        if metrics_path.exists():
+                            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+                            ticket["bugs_found"] = metrics.get("bugs_found", 0)
+                            ticket["bugs_fixed"] = metrics.get("bugs_fixed", 0)
+                    except:
+                        pass
 
     return jira_tickets
 
@@ -411,6 +440,16 @@ def get_free_port():
     port = s.getsockname()[1]
     s.close()
     return port
+
+@app.post("/api/tickets/{ticket_key}/stop")
+def stop_ticket_app(ticket_key: str, email: str = Depends(get_current_user)):
+    """Kill a running app process so the next /run starts fresh."""
+    if ticket_key in RUNNING_APPS:
+        proc = RUNNING_APPS[ticket_key]["process"]
+        if proc.poll() is None:
+            proc.kill()
+        del RUNNING_APPS[ticket_key]
+    return {"status": "stopped"}
 
 @app.post("/api/tickets/{ticket_key}/run")
 def run_ticket_app(ticket_key: str, email: str = Depends(get_current_user)):

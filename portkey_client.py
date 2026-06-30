@@ -8,7 +8,6 @@ load_dotenv()
 
 _HTTP_CLIENT = httpx.Client(verify=False, timeout=120.0)
 
-# Model configuration with provider routing
 _ANALYST_MODEL   = os.getenv("PORTKEY_ANALYST_MODEL", "gpt-4o-mini")
 _ANALYST_PROVIDER = os.getenv("PORTKEY_ANALYST_PROVIDER", "az-openai")
 
