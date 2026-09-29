@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Syngenta Feedback Form">
+  <meta name="author" content="Syngenta">
+  <title>Syngenta Feedback Form</title>
+  <link rel="stylesheet" href="./feedbackStyles.css">
+  <link rel="icon" href="https://www.syngenta.com/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="app">
+    <h1>Syngenta Feedback Form</h1>
+    <form id="feedbackForm" aria-labelledby="feedbackForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required aria-required="true" minlength="2" maxlength="50">
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+      
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" name="feedback" placeholder="Enter your feedback" required aria-required="true" minlength="10" maxlength="500"></textarea>
+      
+      <button type="submit" aria-label="Submit Feedback">Submit</button>
+    </form>
+    <div id="responseMessage" role="alert"></div>
+  </div>
+
+  <script>
+    const feedbackForm = document.getElementById('feedbackForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    feedbackForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Client-side validation
+      const name = feedbackForm.name.value.trim();
+      const email = feedbackForm.email.value.trim();
+      const feedback = feedbackForm.feedback.value.trim();
+
+      if (name.length < 2 || name.length > 50) {
+        responseMessage.textContent = 'Name must be between 2 and 50 characters.';
+        responseMessage.style.color = 'red';
+        return;
+      }
+
+      const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        responseMessage.textContent = 'Please enter a valid email address.';
+        responseMessage.style.color = 'red';
+        return;
+      }
+
+      if (feedback.length < 10 || feedback.length > 500) {
+        responseMessage.textContent = 'Feedback must be between 10 and 500 characters.';
+        responseMessage.style.color = 'red';
+        return;
+      }
+
+      const formData = { name, email, feedback };
+
+      try {
+        const response = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          responseMessage.textContent = 'Thank you for your feedback!';
+          responseMessage.style.color = 'green';
+          feedbackForm.reset();
+        } else {
+          responseMessage.textContent = result.message || 'An error occurred. Please try again.';
+          responseMessage.style.color = 'red';
+        }
+      } catch (error) {
+        responseMessage.textContent = 'An error occurred. Please try again.';
+        responseMessage.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>

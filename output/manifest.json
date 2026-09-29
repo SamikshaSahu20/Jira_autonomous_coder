@@ -1,0 +1,1602 @@
+[
+  {
+    "filename": "ExpenseItem.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.009695",
+    "last_modified": "2026-06-19T14:24:53.009712"
+  },
+  {
+    "filename": "ExpenseForm.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.015768",
+    "last_modified": "2026-06-19T14:24:53.015780"
+  },
+  {
+    "filename": "ExpenseList.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.019847",
+    "last_modified": "2026-06-19T14:24:53.019855"
+  },
+  {
+    "filename": "expenseController.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.026272",
+    "last_modified": "2026-06-19T14:24:53.026280"
+  },
+  {
+    "filename": "ExpenseItem.test.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.030641",
+    "last_modified": "2026-06-19T14:24:53.030648"
+  },
+  {
+    "filename": "expenseController.test.js",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.035378",
+    "last_modified": "2026-06-19T14:24:53.035386"
+  },
+  {
+    "filename": "flowchart_ASK-769.md",
+    "ticket": "ASK-769",
+    "story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "last_story": "Ticket: ASK-769\n\nStory: Build a modern Expense Tracker with all the functionality, total calculation, smooth animations, and a professional design.",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "The provided code was reviewed for functionality, accessibility, and edge cases. Fixes were made to ensure ARIA complian",
+    "created_at": "2026-06-19T14:24:53.039903",
+    "last_modified": "2026-06-19T14:24:53.039911"
+  },
+  {
+    "filename": "generated_code.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.106440",
+    "last_modified": "2026-06-19T14:35:28.106450"
+  },
+  {
+    "filename": "generated_code_2.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.111264",
+    "last_modified": "2026-06-19T14:35:28.111272"
+  },
+  {
+    "filename": "generated_code_3.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.115369",
+    "last_modified": "2026-06-19T14:35:28.115377"
+  },
+  {
+    "filename": "generated_code_4.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.119515",
+    "last_modified": "2026-06-19T14:35:28.119524"
+  },
+  {
+    "filename": "generated_code_5.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.125522",
+    "last_modified": "2026-06-19T14:35:28.125532"
+  },
+  {
+    "filename": "generated_code_6.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.129683",
+    "last_modified": "2026-06-19T14:35:28.129690"
+  },
+  {
+    "filename": "body.light",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated LIGHT component or logic file",
+    "created_at": "2026-06-19T14:35:28.133353",
+    "last_modified": "2026-06-19T14:35:28.133360"
+  },
+  {
+    "filename": "generated_code_8.js",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-19T14:35:28.138659",
+    "last_modified": "2026-06-19T14:35:28.138668"
+  },
+  {
+    "filename": "flowchart_ASK-770.md",
+    "ticket": "ASK-770",
+    "story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "last_story": "Ticket: ASK-770\n\nStory: add toogle button for light and dark mode in expense tracker",
+    "run_dir": "output\\ASK-769-770",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-19T14:35:28.142565",
+    "last_modified": "2026-06-19T14:35:28.142572"
+  },
+  {
+    "filename": "api.js",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.538314",
+    "last_modified": "2026-06-24T22:25:50.485484"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-772\n\nStory: For cropwise grower create a analytical dashboard page ",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-23T21:15:51.591944",
+    "last_modified": "2026-06-25T10:22:31.587311"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated HTML component or logic file",
+    "created_at": "2026-06-24T22:25:50.472546",
+    "last_modified": "2026-06-25T10:22:31.591152"
+  },
+  {
+    "filename": "feedbackController.js",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.496856",
+    "last_modified": "2026-06-25T10:22:31.598483"
+  },
+  {
+    "filename": "Feedback.js",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.510054",
+    "last_modified": "2026-06-25T10:22:31.601609"
+  },
+  {
+    "filename": "feedbackController.test.js",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-24T22:25:50.522336",
+    "last_modified": "2026-06-25T10:22:31.606654"
+  },
+  {
+    "filename": "flowchart_ASK-781.md",
+    "ticket": "ASK-781",
+    "story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "last_story": "Ticket: ASK-781\n\nStory: create a simple page where syngenta customers can submit their feedback regarding different products make it professional and should contain animations",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-24T22:25:50.531384",
+    "last_modified": "2026-06-24T22:25:50.531404"
+  },
+  {
+    "filename": "feedbackRoutes.js",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-25T10:22:31.594807",
+    "last_modified": "2026-06-25T10:22:31.594816"
+  },
+  {
+    "filename": "feedbackStyles.css",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "Generated CSS component or logic file",
+    "created_at": "2026-06-25T10:22:31.604129",
+    "last_modified": "2026-06-25T10:22:31.604133"
+  },
+  {
+    "filename": "flowchart_ASK-782.md",
+    "ticket": "ASK-782",
+    "story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "last_story": "Ticket: ASK-782\n\nStory: In the syngenta's feedback form add more efficiency and make the ui more professional and similar to syngenta's theme",
+    "run_dir": "output\\ASK-781-782",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-25T10:22:31.609260",
+    "last_modified": "2026-06-25T10:22:31.609264"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.533233",
+    "last_modified": "2026-06-29T00:03:15.533239"
+  },
+  {
+    "filename": "app.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.536962",
+    "last_modified": "2026-06-29T00:03:15.536969"
+  },
+  {
+    "filename": "weatherRoutes.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.540872",
+    "last_modified": "2026-06-29T00:03:15.540879"
+  },
+  {
+    "filename": "weatherController.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.546194",
+    "last_modified": "2026-06-29T00:03:15.546201"
+  },
+  {
+    "filename": "weatherService.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.588757",
+    "last_modified": "2026-06-29T00:03:15.588765"
+  },
+  {
+    "filename": "weatherController.test.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.594066",
+    "last_modified": "2026-06-29T00:03:15.594073"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated HTML component or logic file",
+    "created_at": "2026-06-29T00:03:15.598418",
+    "last_modified": "2026-06-29T00:03:15.598424"
+  },
+  {
+    "filename": "index.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.602743",
+    "last_modified": "2026-06-29T00:03:15.602750"
+  },
+  {
+    "filename": "App.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.605974",
+    "last_modified": "2026-06-29T00:03:15.605980"
+  },
+  {
+    "filename": "Header.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.609999",
+    "last_modified": "2026-06-29T00:03:15.610005"
+  },
+  {
+    "filename": "Dashboard.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.613202",
+    "last_modified": "2026-06-29T00:03:15.613207"
+  },
+  {
+    "filename": "RegionChart.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.616801",
+    "last_modified": "2026-06-29T00:03:15.616808"
+  },
+  {
+    "filename": "weatherApi.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.621354",
+    "last_modified": "2026-06-29T00:03:15.621361"
+  },
+  {
+    "filename": "App.test.js",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T00:03:15.625028",
+    "last_modified": "2026-06-29T00:03:15.625035"
+  },
+  {
+    "filename": "flowchart_ASK-787.md",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-29T00:03:15.628572",
+    "last_modified": "2026-06-29T00:03:15.628579"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-787",
+    "story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-787\n\nTitle: Build a crop weather monitoring dashboard that shows temperature, humidity and rainfall data for 3 regions using charts\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-787",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-29T00:03:15.631973",
+    "last_modified": "2026-06-29T00:03:15.631979"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "AuthContext.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "authController.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "flowchart_ASK-771.md",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "LoginPage.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-771",
+    "story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-771\\n\\nTitle: Build a login and authentication page for CropWise Grower with JWT authentication\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-771",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:30:24.549354",
+    "last_modified": "2026-06-26T00:30:24.549354"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "analyticsController.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "analyticsController.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "api.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "App.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "DashboardChart.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "DashboardChart.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "DashboardPage.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "DashboardPage.test.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "flowchart_ASK-772.md",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-772",
+    "story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-772\\n\\nTitle: For cropwise grower create a analytical dashboard page\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-772",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-25T12:29:44.203267",
+    "last_modified": "2026-06-25T12:29:44.203267"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "dashboardStyles.css",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Stylesheet for the application UI",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "flowchart_ASK-783.md",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "githubController.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "githubRoutes.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "index.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "Notification.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "notificationsController.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "notificationsRoutes.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "Task.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "taskController.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "taskRoutes.js",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-783",
+    "story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-783\\n\\nTitle: Create a page to display team tasks, GitHub notifications, and personal tasks with a modern dashboard UI\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-783",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:02:57.200104",
+    "last_modified": "2026-06-26T00:02:57.200104"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "analyticsRoutes.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "flowchart_ASK-784.md",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "Game.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "gameController.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "gameRoutes.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "gameStyles.css",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Stylesheet for the application UI",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "leaderboardRoutes.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "notificationsRoutes.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "settingsRoutes.js",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-784",
+    "story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-784\\n\\nTitle: Create an interactive game page with leaderboard and analytics for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-784",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:30:54.133171",
+    "last_modified": "2026-06-26T14:30:54.133171"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "errorHandler.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "flowchart_ASK-785.md",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "logger.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "thankYouPageController.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "thankYouPageController.test.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "thankYouPageRoutes.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "thankYouPageRoutes.test.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "thankYouPageStyles.css",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Stylesheet for the application UI",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "validationMiddleware.js",
+    "ticket": "ASK-785",
+    "story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-785\\n\\nTitle: Create a thank you page with validation middleware and error handling for CropWise\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-785",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T00:34:30.529860",
+    "last_modified": "2026-06-26T00:34:30.529860"
+  },
+  {
+    "filename": "AI_Review.md",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "AI code review with security and quality feedback",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "calculator.test.js",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Unit tests for the application",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "calculatorController.js",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "calculatorRoutes.js",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "flowchart_ASK-786.md",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Main HTML entry point",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "metrics.json",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "package.json",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "README.md",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Project documentation and setup instructions",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "run.bat",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "run.sh",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Script to run the application",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "script.js",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "JavaScript component implementing core functionality",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "styles.css",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Stylesheet for the application UI",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-786",
+    "story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-786\\n\\nTitle: Build a calculator application with a clean UI and REST API\\n\\nType: Task\\n\\nPriority: Medium [P3]\\n\\nAssignee: Samiksha Sahu\\n\\nReporter: Samiksha Sahu",
+    "run_dir": "output\\\\ASK-786",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-26T14:28:13.226596",
+    "last_modified": "2026-06-26T14:28:13.226596"
+  },
+  {
+    "filename": "server.js",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.670682",
+    "last_modified": "2026-06-29T11:32:30.739837"
+  },
+  {
+    "filename": "newsController.js",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.687438",
+    "last_modified": "2026-06-29T11:32:30.751810"
+  },
+  {
+    "filename": "newsRoutes.js",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.700189",
+    "last_modified": "2026-06-29T11:32:30.744721"
+  },
+  {
+    "filename": "newsService.js",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.712563",
+    "last_modified": "2026-06-29T11:32:30.758957"
+  },
+  {
+    "filename": "errorHandler.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.723033",
+    "last_modified": "2026-06-29T11:25:04.723043"
+  },
+  {
+    "filename": "logger.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.738625",
+    "last_modified": "2026-06-29T11:25:04.738637"
+  },
+  {
+    "filename": "index.html",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated HTML component or logic file",
+    "created_at": "2026-06-29T11:25:04.753370",
+    "last_modified": "2026-06-29T11:32:30.772748"
+  },
+  {
+    "filename": "App.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.764280",
+    "last_modified": "2026-06-29T11:25:04.764292"
+  },
+  {
+    "filename": "NewsPage.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.774126",
+    "last_modified": "2026-06-29T11:25:04.774135"
+  },
+  {
+    "filename": "NewsCard.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.781786",
+    "last_modified": "2026-06-29T11:25:04.781799"
+  },
+  {
+    "filename": "SearchBar.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.792103",
+    "last_modified": "2026-06-29T11:25:04.792113"
+  },
+  {
+    "filename": "CategoryFilter.js",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:25:04.800677",
+    "last_modified": "2026-06-29T11:25:04.800686"
+  },
+  {
+    "filename": "flowchart_ASK-788.md",
+    "ticket": "ASK-788",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-29T11:25:04.818588",
+    "last_modified": "2026-06-29T11:25:04.818608"
+  },
+  {
+    "filename": "timings.json",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-788\n\nTitle: Create a web page for latest news information regarding it\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JSON component or logic file",
+    "created_at": "2026-06-29T11:25:04.829419",
+    "last_modified": "2026-06-29T11:32:30.789144"
+  },
+  {
+    "filename": "newsServiceFrontend.js",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "Generated JS component or logic file",
+    "created_at": "2026-06-29T11:32:30.764013",
+    "last_modified": "2026-06-29T11:32:30.764021"
+  },
+  {
+    "filename": "flowchart_ASK-789.md",
+    "ticket": "ASK-789",
+    "story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "last_story": "Ticket: ASK-789\n\nTitle: the ticket ask 788 is not running in the front end subprocess run app so fix it use html js\n\nType: Task\n\nPriority: Medium [P3]\n\nAssignee: Samiksha Sahu\n\nReporter: Samiksha Sahu",
+    "run_dir": "output\\ASK-788",
+    "summary": "System Architecture & Function Map",
+    "created_at": "2026-06-29T11:32:30.780504",
+    "last_modified": "2026-06-29T11:32:30.780514"
+  }
+]

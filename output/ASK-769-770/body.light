@@ -1,0 +1,44 @@
+background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.theme-toggle-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.expense-form.light {
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+.expense-form.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.expense-list.light {
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+.expense-list.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.expense-item.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.expense-item.dark {
+  background-color: #444444;
+  color: #ffffff;
+}

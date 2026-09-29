@@ -1,0 +1,16 @@
+{
+  "language": "javascript",
+  "framework": "express",
+  "database": "mongodb",
+  "orm": "mongoose",
+  "auth": null,
+  "other_libraries": [
+    "supertest"
+  ],
+  "conventions": [
+    "uses controllers for request handling",
+    "uses Mongoose schemas for data modeling",
+    "separates routes into dedicated files"
+  ],
+  "file_structure": "controllers/, models/, routes/, public/"
+}

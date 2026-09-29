@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Architecture — Autonomous Coder</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #060818;
+  color: #dde4f0;
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  padding: 56px 24px 96px;
+  background-image:
+    linear-gradient(rgba(99,120,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,120,255,0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.wrap { max-width: 980px; margin: 0 auto; }
+
+/* ── Header ── */
+.hero { text-align: center; margin-bottom: 72px; }
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: #4fa3e8; margin-bottom: 18px; opacity: .8;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px); font-weight: 700;
+  letter-spacing: -1.5px; line-height: 1.05;
+  background: linear-gradient(130deg, #6fa8ff 0%, #a78bfa 50%, #34d399 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 15px; color: #6878a0; margin-top: 14px;
+  max-width: 500px; margin-left: auto; margin-right: auto;
+  line-height: 1.7; font-weight: 400;
+}
+
+/* ── Panel ── */
+.panel {
+  background: #0b0f24;
+  border: 1px solid #192040;
+  border-radius: 18px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.panel-head {
+  display: flex; align-items: center; gap: 14px;
+  padding: 24px 28px;
+  border-bottom: 1px solid #192040;
+  background: rgba(255,255,255,0.018);
+}
+.panel-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 2px; color: #3a4870;
+  text-transform: uppercase; flex-shrink: 0;
+}
+.panel-title { font-size: 17px; font-weight: 600; color: #c8d4f0; letter-spacing: -0.3px; }
+.panel-desc { font-size: 13px; color: #556085; margin-top: 3px; line-height: 1.6; }
+.panel-body { padding: 32px 28px; }
+
+/* ── Legend ── */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  margin-bottom: 28px; padding: 12px 16px;
+  background: #0d1328; border: 1px solid #192040; border-radius: 8px;
+}
+.leg { display: flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #556085; }
+.leg-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* ── Flow (Diagram 1) ── */
+.flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+/* node */
+.fnode {
+  width: 100%; max-width: 700px;
+  background: #0e1429;
+  border-radius: 12px;
+  border: 1px solid #1e2b50;
+  padding: 16px 20px;
+  position: relative;
+  transition: border-color .2s;
+}
+.fnode:hover { border-color: #2d4080; }
+
+.fnode-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.ftag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500;
+  padding: 2px 7px; border-radius: 3px; flex-shrink: 0;
+}
+.ftag-jira  { background: rgba(77,140,240,.14);  color: #4d8cf0; border: 1px solid rgba(77,140,240,.28); }
+.ftag-py    { background: rgba(167,139,250,.14); color: #a78bfa; border: 1px solid rgba(167,139,250,.28); }
+.ftag-ai    { background: rgba(52,211,153,.14);  color: #34d399; border: 1px solid rgba(52,211,153,.28); }
+.ftag-file  { background: rgba(251,191,36,.14);  color: #fbbf24; border: 1px solid rgba(251,191,36,.28); }
+
+.fname {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px; font-weight: 500; color: #c5d0ee;
+}
+.fdesc { font-size: 12.5px; color: #5a6a90; line-height: 1.65; }
+
+/* left-colored border per type */
+.fnode-jira { border-left: 3px solid #4d8cf0; }
+.fnode-py   { border-left: 3px solid #a78bfa; }
+.fnode-ai   { border-left: 3px solid #34d399; }
+.fnode-file { border-left: 3px solid #fbbf24; }
+
+/* side-by-side pair */
+.frow {
+  display: flex; gap: 12px; width: 100%; max-width: 700px; align-items: stretch;
+}
+.frow .fnode { flex: 1; max-width: none; }
+.frow-sep {
+  display: flex; align-items: center; justify-content: center;
+  color: #2a3556; font-size: 18px; flex-shrink: 0; padding: 0 2px;
+  align-self: center;
+}
+
+/* connector */
+.conn {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 4px 0; gap: 0; position: relative;
+}
+.conn-line { width: 1px; height: 24px; background: #1e2b50; }
+.conn-pip {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #1e2b50; border: 1px solid #2d4080;
+  animation: pip 2.4s ease-in-out infinite;
+}
+@keyframes pip {
+  0%,100% { background:#1e2b50; box-shadow: none; }
+  50% { background: #4e65ff; box-shadow: 0 0 8px #4e65ff88; }
+}
+.conn-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: #3a4870;
+  background: #0b0f24; border: 1px solid #192040;
+  padding: 2px 9px; border-radius: 4px;
+  margin: 0 0 0 12px; white-space: nowrap;
+}
+.conn-inline { display: flex; align-items: center; }
+
+/* agents box */
+.agents-wrap {
+  width: 100%; max-width: 700px;
+  background: #0e1429; border: 1px solid #1e2b50;
+  border-left: 3px solid #34d399;
+  border-radius: 12px; overflow: hidden;
+}
+.agents-header { padding: 14px 20px 10px; border-bottom: 1px solid #192040; }
+.agents-header .ftag { display: inline-block; margin-bottom: 6px; }
+.agents-header .fname { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: #c5d0ee; }
+.agents-header .fdesc { font-size: 12.5px; color: #5a6a90; line-height: 1.65; margin-top: 5px; }
+.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.agent {
+  padding: 14px 16px;
+  border-right: 1px solid #192040;
+  position: relative; overflow: hidden;
+}
+.agent:last-child { border-right: none; }
+.agent::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #34d399, transparent);
+  opacity: 0; animation: scan 3s ease-in-out infinite;
+}
+.agent:nth-child(2)::after { animation-delay: 1s; }
+.agent:nth-child(3)::after { animation-delay: 2s; }
+@keyframes scan { 0%,100%{opacity:0} 50%{opacity:.7} }
+.agent-n { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; color:#34d39955; text-transform:uppercase; }
+.agent-name { font-size: 14px; font-weight: 600; color: #34d399; margin: 4px 0 6px; }
+.agent-desc { font-size: 11.5px; color: #4d5e82; line-height: 1.6; }
+
+/* portkey + llm */
+.frow-ai .fnode { border-left: 3px solid #34d399; }
+
+/* status badge */
+.status-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 3px 10px; border-radius: 4px;
+  background: rgba(52,211,153,.1); color: #34d399;
+  border: 1px solid rgba(52,211,153,.25); margin-left: 8px;
+}
+
+/* ── Frontend layers (Diagram 2) ── */
+.crumb {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  padding: 12px 16px; background: #0d1328;
+  border: 1px solid #192040; border-radius: 8px; margin-bottom: 24px;
+}
+.crumb-item {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 3px 9px; border-radius: 4px;
+}
+.crumb-arrow { color: #2a3556; font-size: 12px; }
+
+.swim { border: 1px solid #192040; border-radius: 12px; overflow: hidden; margin-bottom: 0; }
+.swim-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+  padding: 8px 16px; border-bottom: 1px solid #192040;
+}
+.swim-label.fe   { background: rgba(56,189,248,.07); color: #38bdf8; }
+.swim-label.api  { background: rgba(167,139,250,.07); color: #a78bfa; }
+.swim-label.data { background: rgba(251,191,36,.07); color: #fbbf24; }
+.swim-label.node { background: rgba(74,222,128,.07); color: #4ade80; }
+
+.swim-cells { display: grid; grid-template-columns: repeat(4, 1fr); }
+.swim-cell {
+  padding: 14px 16px;
+  border-right: 1px solid #192040;
+  background: #0e1429;
+}
+.swim-cell:last-child { border-right: none; }
+.sc-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  padding: 2px 6px; border-radius: 3px;
+  display: inline-block; margin-bottom: 6px; letter-spacing: 1px;
+}
+.sc-name { font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.sc-desc { font-size: 11.5px; color: #4d5e82; line-height: 1.6; }
+
+.swim-conn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 10px; font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: #3a4870;
+}
+.swim-conn-line { flex: 1; height: 1px; background: #192040; max-width: 60px; }
+.swim-conn-arrow { animation: bounce 2s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
+
+@media (max-width: 640px) {
+  .frow { flex-direction: column; }
+  .frow-sep { display: none; }
+  .agents-grid { grid-template-columns: 1fr; }
+  .swim-cells { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .swim-cells { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-eyebrow">// system &middot; architecture &middot; v2.0</div>
+    <h1>Autonomous Coder</h1>
+    <p>From Jira ticket to reviewed, running code &mdash; fully autonomous. Two annotated diagrams mapping every layer.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       DIAGRAM 1 — PIPELINE
+  ═══════════════════════════════════ -->
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <div class="panel-num">DIAGRAM 01</div>
+        <div class="panel-title">Jira &rarr; AI Generation Pipeline</div>
+        <div class="panel-desc">Background daemon polls Jira, detects In Progress tickets, and runs them through a three-agent AI chain that writes, reviews, and commits working source code.</div>
+      </div>
+    </div>
+    <div class="panel-body">
+
+      <div class="legend">
+        <span class="leg"><span class="leg-dot" style="background:#4d8cf0"></span>Jira / External</span>
+        <span class="leg"><span class="leg-dot" style="background:#a78bfa"></span>Python Service</span>
+        <span class="leg"><span class="leg-dot" style="background:#34d399"></span>AI / LLM</span>
+        <span class="leg"><span class="leg-dot" style="background:#fbbf24"></span>File / Storage</span>
+      </div>
+
+      <div class="flow">
+
+        <!-- 1. Jira -->
+        <div class="fnode fnode-jira">
+          <div class="fnode-top">
+            <span class="ftag ftag-jira">Jira Cloud</span>
+            <span class="fname">Sprint Board &mdash; autonomous-coder</span>
+          </div>
+          <div class="fdesc">Source of all work items. Status lifecycle: <strong style="color:#c5d0ee">To Do &rarr; In Progress &rarr; In Review &rarr; Done</strong>. Ticket summary, ADF-formatted description, and acceptance criteria are fetched via Jira REST API v3 &amp; Agile 1.0. Board ID set in <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.env</code>.</div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-inline"><div class="conn-pip"></div><span class="conn-badge">polls every N minutes</span></div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- 2. watcher + pipeline -->
+        <div class="frow">
+          <div class="fnode fnode-py">
+            <div class="fnode-top"><span class="ftag ftag-py">Daemon</span><span class="fname">watcher.py</span></div>
+            <div class="fdesc">Polling loop. Detects sprint changes, calls <code style="font-family:'JetBrains Mono',monospace;font-size:11px">run_pipeline()</code> for any <em>In Progress</em> story. Persists state to <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.watcher_state.json</code> to skip duplicates.</div>
+          </div>
+          <div class="frow-sep">&#8594;</div>
+          <div class="fnode fnode-py">
+            <div class="fnode-top"><span class="ftag ftag-py">Orchestrator</span><span class="fname">pipeline.py</span></div>
+            <div class="fdesc">Iterates over In Progress tickets. For each: fetches full details, calls <code style="font-family:'JetBrains Mono',monospace;font-size:11px">generate_code()</code>, posts Jira comment with file summary, then transitions ticket status.</div>
+          </div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-pip" style="animation-delay:.4s"></div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- 3. jira_reader + context_analyzer -->
+        <div class="frow">
+          <div class="fnode fnode-py">
+            <div class="fnode-top"><span class="ftag ftag-py">Jira Client</span><span class="fname">jira_reader.py</span></div>
+            <div class="fdesc">Basic Auth. Parses ADF (Atlassian Document Format) to plain text. Posts generation-complete comment. Transitions ticket via <code style="font-family:'JetBrains Mono',monospace;font-size:11px">POST /rest/api/3/issue/{key}/transitions</code>.</div>
+          </div>
+          <div class="frow-sep">+</div>
+          <div class="fnode fnode-py">
+            <div class="fnode-top"><span class="ftag ftag-py">Stack Detector</span><span class="fname">context_analyzer.py</span></div>
+            <div class="fdesc">Scans <code style="font-family:'JetBrains Mono',monospace;font-size:11px">output/</code> for existing code to detect project stack (e.g. <em>javascript/express</em>). Caches as <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.stack_cache_*.json</code> to avoid repeated LLM calls.</div>
+          </div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-inline"><div class="conn-pip" style="animation-delay:.8s"></div><span class="conn-badge">enriched spec + stack context</span></div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- 4. generate.py -->
+        <div class="agents-wrap">
+          <div class="agents-header">
+            <span class="ftag ftag-py">Code Engine</span>
+            <div class="fname" style="margin-top:6px">generate.py &mdash; Three-Agent Orchestrator</div>
+            <div class="fdesc">Drives the sequential AI chain. Reads <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.agents/skills/frontend-design/SKILL.md</code> at runtime and injects design guidelines into Agent 2. Parses all code blocks from LLM responses, extracts filenames from first-line comments. Safety fallback: if Agent 3 returns fewer files than Agent 2, missing files are merged back in automatically.</div>
+          </div>
+          <div class="agents-grid">
+            <div class="agent">
+              <div class="agent-n">AGENT 01</div>
+              <div class="agent-name">Analyst</div>
+              <div class="agent-desc">Transforms vague Jira ticket + stack context into a precise development spec with file plan, architecture, and acceptance rules.<br><br><code style="font-family:'JetBrains Mono',monospace">gpt-4o-mini &middot; az-openai</code></div>
+            </div>
+            <div class="agent">
+              <div class="agent-n">AGENT 02</div>
+              <div class="agent-name">Coder</div>
+              <div class="agent-desc">Generates all source files in a flat directory. Applies frontend-design SKILL.md for palette, type, and signature element in <code style="font-family:'JetBrains Mono',monospace">index.html</code>.<br><br><code style="font-family:'JetBrains Mono',monospace">eu.anthropic.claude-sonnet-4-6 &middot; az-openai</code></div>
+            </div>
+            <div class="agent">
+              <div class="agent-n">AGENT 03</div>
+              <div class="agent-name">Tester</div>
+              <div class="agent-desc">Reviews and fixes all bugs. Upgrades weak designs. Writes test cases. Generates Mermaid flowchart. Re-outputs all corrected files.<br><br><code style="font-family:'JetBrains Mono',monospace">gpt-4o &middot; az-openai</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-inline"><div class="conn-pip" style="animation-delay:1.2s"></div><span class="conn-badge">all API calls via Portkey SDK</span></div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- 5. portkey + llm -->
+        <div class="frow">
+          <div class="fnode" style="border-left:3px solid #34d399;background:#0e1429;border-radius:12px;border-color:#1e3040;padding:16px 20px;flex:1">
+            <div class="fnode-top"><span class="ftag ftag-ai">Gateway</span><span class="fname" style="color:#c5d0ee">portkey_client.py</span></div>
+            <div class="fdesc">Single <code style="font-family:'JetBrains Mono',monospace;font-size:11px">call_llm(agent, ...)</code> interface. Resolves per-agent model &amp; provider from <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.env</code>. Retries on transient errors. <code style="font-family:'JetBrains Mono',monospace;font-size:11px">httpx(verify=False)</code> for Zscaler SSL.</div>
+          </div>
+          <div class="frow-sep">&#8594;</div>
+          <div class="fnode" style="border-left:3px solid #34d399;background:#0e1429;border-radius:12px;border-color:#1e3040;padding:16px 20px;flex:1">
+            <div class="fnode-top"><span class="ftag ftag-ai">LLM Providers</span><span class="fname" style="color:#c5d0ee">Azure OpenAI / AWS Bedrock</span></div>
+            <div class="fdesc">Portkey gateway at <code style="font-family:'JetBrains Mono',monospace;font-size:11px">portkey.syngenta.com/v1</code> routes to the virtual key. Currently <code style="font-family:'JetBrains Mono',monospace;font-size:11px">az-openai &rarr; gpt-4o</code>. Swap to Bedrock via <code style="font-family:'JetBrains Mono',monospace;font-size:11px">.env</code> only &mdash; zero code changes.</div>
+          </div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-pip" style="animation-delay:1.6s"></div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- 6. output + manifest -->
+        <div class="frow">
+          <div class="fnode fnode-file">
+            <div class="fnode-top"><span class="ftag ftag-file">Generated App</span><span class="fname">output/ASK-XXX/</span></div>
+            <div class="fdesc">Flat directory: <code style="font-family:'JetBrains Mono',monospace;font-size:11px">server.js</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">index.html</code>, route &amp; controller files, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">flowchart_*.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">metrics.json</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">timings.json</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">run.bat</code>/<code style="font-family:'JetBrains Mono',monospace;font-size:11px">run.sh</code>.</div>
+          </div>
+          <div class="frow-sep">+</div>
+          <div class="fnode fnode-file">
+            <div class="fnode-top"><span class="ftag ftag-file">Registry</span><span class="fname">manifest.json</span></div>
+            <div class="fdesc">Append-only log of every generated file. Each record: <code style="font-family:'JetBrains Mono',monospace;font-size:11px">ticket</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">filename</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">language</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">run_dir</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:11px">created_at</code>. 67+ entries. Powers dashboard KPIs.</div>
+          </div>
+        </div>
+
+        <div class="conn">
+          <div class="conn-line"></div>
+          <div class="conn-inline">
+            <div class="conn-pip" style="background:#4d8cf0;border-color:#4d8cf0;animation-delay:2s"></div>
+            <span class="conn-badge" style="color:#4d8cf0;border-color:rgba(77,140,240,.3)">POST comment + transition &rarr; In Review</span>
+          </div>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- Done state -->
+        <div class="fnode fnode-jira" style="text-align:center;max-width:700px">
+          <span class="fname">Jira Ticket</span>
+          <span class="status-badge">&#x2713; In Review</span>
+          <div class="fdesc" style="margin-top:6px;text-align:center">Generation complete. QA reviewer picks up from here.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       DIAGRAM 2 — FRONTEND
+  ═══════════════════════════════════ -->
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <div class="panel-num">DIAGRAM 02</div>
+        <div class="panel-title">Web Application &amp; Frontend Architecture</div>
+        <div class="panel-desc">JWT-secured React dashboard that lets reviewers browse generated apps, preview live Node servers in an iframe, and chat with the code agent.</div>
+      </div>
+    </div>
+    <div class="panel-body">
+
+      <div class="crumb">
+        <span class="crumb-item" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">Browser</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">React SPA</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">axios + JWT</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">FastAPI :8000</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">manifest / output/</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)">Node.js :dynamic</span>
+        <span class="crumb-arrow">&#8594;</span>
+        <span class="crumb-item" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">iframe preview</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0;border:1px solid #192040;border-radius:12px;overflow:hidden">
+
+        <div class="swim">
+          <div class="swim-label fe">Client Layer &mdash; React 19 + Vite + Tailwind + Recharts + Mermaid.js</div>
+          <div class="swim-cells">
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">App.jsx</div>
+              <div class="sc-name" style="color:#38bdf8">Auth Gate</div>
+              <div class="sc-desc">Checks token in <code style="font-family:'JetBrains Mono',monospace">localStorage</code>. Renders <code style="font-family:'JetBrains Mono',monospace">Login</code> or <code style="font-family:'JetBrains Mono',monospace">Dashboard</code>. No router &mdash; single state toggle.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">Dashboard.jsx</div>
+              <div class="sc-name" style="color:#38bdf8">KPI + Table</div>
+              <div class="sc-desc">KPI cards, three Recharts graphs, sortable ticket table. Opens <code style="font-family:'JetBrains Mono',monospace">FilesModal</code> on row click.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">FilesModal.jsx</div>
+              <div class="sc-name" style="color:#38bdf8">5-Tab View</div>
+              <div class="sc-desc"><strong>Overview</strong> &middot; <strong>Files</strong> &middot; <strong>Flowchart</strong> &middot; <strong>Preview</strong> (Run App iframe) &middot; <strong>Ask Agent</strong> chat.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">api.js</div>
+              <div class="sc-name" style="color:#38bdf8">HTTP Client</div>
+              <div class="sc-desc">axios instance. Interceptor auto-injects <code style="font-family:'JetBrains Mono',monospace">Authorization: Bearer &lt;token&gt;</code> on every request.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swim-conn">
+          <div class="swim-conn-line"></div>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <span>REST &middot; JSON &middot; Bearer token in header</span>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <div class="swim-conn-line"></div>
+        </div>
+
+        <div class="swim">
+          <div class="swim-label api">API Layer &mdash; FastAPI (uvicorn :8000) &mdash; serves React /dist as static SPA</div>
+          <div class="swim-cells">
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">POST /api/login</div>
+              <div class="sc-name" style="color:#a78bfa">Auth</div>
+              <div class="sc-desc">sha256_crypt hash check against <code style="font-family:'JetBrains Mono',monospace">users.json</code>. Returns signed HS256 JWT via <code style="font-family:'JetBrains Mono',monospace">python-jose</code>.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">GET /api/tickets</div>
+              <div class="sc-name" style="color:#a78bfa">Ticket List</div>
+              <div class="sc-desc">Reads <code style="font-family:'JetBrains Mono',monospace">manifest.json</code>, groups by ticket key, aggregates file counts, language totals &amp; timings.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">POST /run</div>
+              <div class="sc-name" style="color:#a78bfa">Run App</div>
+              <div class="sc-desc">Fixes <code style="font-family:'JetBrains Mono',monospace">package.json</code> deps, runs <code style="font-family:'JetBrains Mono',monospace">npm install</code>, patches <code style="font-family:'JetBrains Mono',monospace">server.js</code>, starts Node via <code style="font-family:'JetBrains Mono',monospace">subprocess.Popen</code>. Returns preview URL.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">POST /chat</div>
+              <div class="sc-name" style="color:#a78bfa">Ask Agent</div>
+              <div class="sc-desc">Passes code context + question to <code style="font-family:'JetBrains Mono',monospace">call_llm(agent="coder")</code>. Returns explanation or fix suggestions.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swim-conn">
+          <div class="swim-conn-line"></div>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <span>reads manifest &middot; resolves output paths</span>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <div class="swim-conn-line"></div>
+        </div>
+
+        <div class="swim">
+          <div class="swim-label data">Data &amp; Storage Layer</div>
+          <div class="swim-cells">
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">manifest.json</div>
+              <div class="sc-name" style="color:#fbbf24">File Registry</div>
+              <div class="sc-desc">67+ entries. Each: <code style="font-family:'JetBrains Mono',monospace">ticket</code>, <code style="font-family:'JetBrains Mono',monospace">filename</code>, <code style="font-family:'JetBrains Mono',monospace">language</code>, <code style="font-family:'JetBrains Mono',monospace">run_dir</code>, <code style="font-family:'JetBrains Mono',monospace">created_at</code>. Append-only.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">users.json</div>
+              <div class="sc-name" style="color:#fbbf24">Auth Store</div>
+              <div class="sc-desc">Managed by <code style="font-family:'JetBrains Mono',monospace">create_user.py</code> CLI. Stores username + sha256_crypt hash. No database required.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">output/ASK-XXX/</div>
+              <div class="sc-name" style="color:#fbbf24">Source Files</div>
+              <div class="sc-desc">One flat dir per ticket. All JS/HTML/CSS source, flowchart MD, metrics, timings, run scripts.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)">.env</div>
+              <div class="sc-name" style="color:#fbbf24">Config</div>
+              <div class="sc-desc">Portkey key, per-agent model/provider, Jira credentials, <code style="font-family:'JetBrains Mono',monospace">WEBAPP_SECRET</code>, board ID, sprint name.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swim-conn">
+          <div class="swim-conn-line"></div>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <span>subprocess.Popen &middot; dynamic port &middot; RUNNING_APPS dict</span>
+          <span class="swim-conn-arrow">&#8595;</span>
+          <div class="swim-conn-line"></div>
+        </div>
+
+        <div class="swim">
+          <div class="swim-label node">Preview Layer &mdash; Dynamic Node.js Servers (one per ticket, on demand)</div>
+          <div class="swim-cells">
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)">runtime</div>
+              <div class="sc-name" style="color:#4ade80">Node Process</div>
+              <div class="sc-desc">One process per ticket. Started on demand. Tracked in <code style="font-family:'JetBrains Mono',monospace">RUNNING_APPS</code>. Restarted if dead on retry.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)">auto-install</div>
+              <div class="sc-name" style="color:#4ade80">npm install</div>
+              <div class="sc-desc">Skipped if <code style="font-family:'JetBrains Mono',monospace">node_modules/</code> exists. Auto-injects missing 3rd-party deps into <code style="font-family:'JetBrains Mono',monospace">package.json</code> from a safe allow-list.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)">auto-patch</div>
+              <div class="sc-name" style="color:#4ade80">_patch_server_js</div>
+              <div class="sc-desc">Removes deprecated Mongoose options. Rewrites blocking <code style="font-family:'JetBrains Mono',monospace">connect().then(listen)</code> to non-blocking. Adds <code style="font-family:'JetBrains Mono',monospace">cors()</code>. Runs once.</div>
+            </div>
+            <div class="swim-cell">
+              <div class="sc-badge" style="background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)">fallback</div>
+              <div class="sc-name" style="color:#4ade80">Static Fallback</div>
+              <div class="sc-desc">If Node crashes at startup, falls back to <code style="font-family:'JetBrains Mono',monospace">python -m http.server</code> to at least serve the <code style="font-family:'JetBrains Mono',monospace">index.html</code>.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

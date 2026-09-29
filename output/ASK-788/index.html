@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 1rem;
+    }
+    .news-card {
+      background: #fff;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .search-bar, .category-filter {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>News App</h1>
+  </header>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search news..." />
+      <button onclick="searchNews()">Search</button>
+    </div>
+    <div class="category-filter">
+      <select id="categorySelect" onchange="filterByCategory()">
+        <option value="">All Categories</option>
+        <option value="business">Business</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="health">Health</option>
+        <option value="science">Science</option>
+        <option value="sports">Sports</option>
+        <option value="technology">Technology</option>
+      </select>
+    </div>
+    <div id="newsContainer"></div>
+  </div>
+  <script>
+    async function fetchNews() {
+      try {
+        const response = await fetch('/api/news');
+        const news = await response.json();
+        renderNews(news);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    }
+
+    async function searchNews() {
+      const query = document.getElementById('searchInput').value;
+      try {
+        const response = await fetch(`/api/news/search/${query}`);
+        const news = await response.json();
+        renderNews(news);
+      } catch (error) {
+        console.error('Error searching news:', error);
+      }
+    }
+
+    async function filterByCategory() {
+      const category = document.getElementById('categorySelect').value;
+      try {
+        const response = await fetch(`/api/news/${category}`);
+        const news = await response.json();
+        renderNews(news);
+      } catch (error) {
+        console.error('Error filtering news by category:', error);
+      }
+    }
+
+    function renderNews(news) {
+      const container = document.getElementById('newsContainer');
+      container.innerHTML = '';
+      news.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.innerHTML = `
+          <h2>${article.title}</h2>
+          <p>${article.description}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Fetch all news on page load
+    fetchNews();
+  </script>
+</body>
+</html>
